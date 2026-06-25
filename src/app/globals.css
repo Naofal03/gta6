@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #04040A;
+  --color-surface: #0D0D18;
+  --color-border: #1A1A2E;
+  --color-orange: #FF4500;
+  --color-cyan: #00FFCC;
+  --color-gold: #FFD700;
+  --color-trust: #22C55E;
+  --color-muted: #888899;
+  
+  --font-bebas: "Bebas Neue", cursive;
+  --font-inter: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Custom Animations */
+  @keyframes shimmer {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+:root {
+  --background: #04040A;
+  --foreground: #F0F0F0;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-bebas);
+  letter-spacing: 0.05em;
+}
+
+.glass {
+  background: rgba(13, 13, 24, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(26, 26, 46, 0.5);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #FF4500, #00FFCC, #FFD700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: shimmer 5s linear infinite;
+}
+
+/* Noise/Grain Grain Effect */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.05;
+  z-index: 9999;
+  background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png');
+}
+
+.shimmer-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #04040A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1A1A2E;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF4500;
+}
