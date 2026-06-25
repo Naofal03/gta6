@@ -1,72 +1,137 @@
 import Link from "next/link";
-import { PRODUCTS_FULL as PRODUCTS } from "@/data/products-full";
+
+interface FooterLink {
+  label: string;
+  href: string;
+  external?: string;
+}
+
+interface FooterColumn {
+  title: string;
+  links: FooterLink[];
+}
+
+const NAV_COLUMNS: FooterColumn[] = [
+  {
+    title: "Navigation",
+    links: [
+      { label: "Accueil", href: "/" },
+      { label: "Précommande GTA 6", href: "/precommande" },
+      { label: "Setup Builder", href: "/setup" },
+      { label: "Quiz Setup", href: "/quiz" },
+      { label: "Catalogue produits", href: "/produits" },
+      { label: "Tous les accessoires", href: "/accessoires" },
+      { label: "Histoire de la saga", href: "/histoire-gta" },
+    ],
+  },
+  {
+    title: "Guides Experts",
+    links: [
+      { label: "Quel SSD pour GTA 6 ?", href: "/guides/meilleur-ssd-gta6" },
+      { label: "Meilleure TV 4K Gaming", href: "/guides/meilleure-tv-gta6" },
+      { label: "Standard vs Ultimate", href: "/guides/edition-standard-vs-ultimate" },
+    ],
+  },
+  {
+    title: "Produits Phares",
+    links: [
+      { label: "GTA 6 PS5 — 79,99€", href: "/produits/gta-6-ps5", external: "https://amzn.to/4aiof6B" },
+      { label: "GTA 6 Xbox — 79,99€", href: "/produits/gta-6-xbox-series", external: "https://amzn.to/4oIMhxq" },
+      { label: "PS5 Pro", href: "/produits/ps5-pro", external: "https://amzn.to/4eJ7enk" },
+      { label: "Lexar EQ790 2 To", href: "/produits/lexar-eq790-2to", external: "https://amzn.to/3T2b8jZ" },
+      { label: "Logitech Astro A50", href: "/produits/logitech-astro-a50", external: "https://amzn.to/4aNkiac" },
+    ],
+  },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-background border-t border-border pt-24 pb-12 px-6">
+    <footer className="bg-surface border-t border-border pt-20 pb-10 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
-          <div>
-             <Link href="/">
-               <span className="text-3xl font-bebas tracking-tighter">
-                 GTA<span className="text-orange">6</span>HQ
-               </span>
-             </Link>
-             <p className="text-muted text-sm mt-6 leading-relaxed max-w-xs">
-               La plateforme de référence française pour tout savoir sur Grand Theft Auto VI. Guides, actus, et comparatifs hardware.
-             </p>
+        {/* Top section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 pb-16 border-b border-border/50">
+          {/* Brand */}
+          <div className="lg:col-span-1">
+            <Link href="/" className="inline-block mb-6">
+              <span className="text-3xl font-bebas tracking-tighter">
+                GTA<span className="text-orange">6</span>HQ
+              </span>
+            </Link>
+            <p className="text-muted text-sm leading-relaxed mb-6 font-inter max-w-xs">
+              La référence française pour préparer votre expérience GTA 6.
+              Guides, comparatifs et sélection produits pour Vice City le 19 novembre 2026.
+            </p>
+            {/* Countdown teaser */}
+            <div className="glass p-4 rounded-sm border border-orange/20 inline-block">
+              <p className="text-[10px] text-muted font-mono uppercase tracking-widest mb-1">Sortie le</p>
+              <p className="text-orange font-bebas text-xl">19 NOVEMBRE 2026</p>
+            </div>
           </div>
 
-          <div>
-            <h4 className="text-lg mb-6 uppercase tracking-widest text-white">Navigation</h4>
-            <ul className="space-y-4 text-sm text-muted">
-              <li><Link href="/" className="hover:text-cyan transition-colors">Accueil</Link></li>
-              <li><Link href="/precommande" className="hover:text-cyan transition-colors">Guide Précommande</Link></li>
-              <li><Link href="/setup" className="hover:text-cyan transition-colors">Setup Builder</Link></li>
-              <li><Link href="/accessoires" className="hover:text-cyan transition-colors">Tous les accessoires</Link></li>
-              <li><Link href="/histoire-gta" className="hover:text-cyan transition-colors">Histoire de la saga</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-lg mb-6 uppercase tracking-widest text-white">Guides Populaires</h4>
-            <ul className="space-y-4 text-sm text-muted">
-              <li><Link href="/guides/meilleur-ssd-gta6" className="hover:text-cyan transition-colors">Quel SSD pour GTA 6 ?</Link></li>
-              <li><Link href="/guides/meilleure-tv-gta6" className="hover:text-cyan transition-colors">Meilleure TV 4K Gaming</Link></li>
-              <li><Link href="/guides/edition-standard-vs-ultimate" className="hover:text-cyan transition-colors">Standard vs Ultimate</Link></li>
-              <li><Link href="/faq" className="hover:text-cyan transition-colors">Foire Aux Questions</Link></li>
-            </ul>
-          </div>
-
-          <div>
-             <h4 className="text-lg mb-6 uppercase tracking-widest text-white">Suivez GTA 6</h4>
-             <div className="flex gap-4">
-                <div className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-cyan/20 cursor-pointer transition-all">
-                  <span className="text-xs font-bold">TW</span>
-                </div>
-                <div className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-cyan/20 cursor-pointer transition-all">
-                  <span className="text-xs font-bold">YT</span>
-                </div>
-                <div className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-cyan/20 cursor-pointer transition-all">
-                  <span className="text-xs font-bold">IG</span>
-                </div>
-             </div>
-             <p className="text-[10px] text-muted mt-8 uppercase font-mono">
-               Propulsé par la passion Gaming
-             </p>
-          </div>
+          {/* Nav columns */}
+          {NAV_COLUMNS.map((col) => (
+            <div key={col.title}>
+              <h4 className="text-sm font-bebas tracking-[0.2em] uppercase text-white mb-6 pb-3 border-b border-border/50">
+                {col.title}
+              </h4>
+              <ul className="space-y-3">
+                {col.links.map((link) => (
+                  <li key={link.href}>
+                    {link.external ? (
+                      <a
+                        href={link.external}
+                        target="_blank"
+                        rel="nofollow sponsored"
+                        className="text-sm text-muted hover:text-cyan transition-colors font-inter"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-sm text-muted hover:text-cyan transition-colors font-inter"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        <div className="pt-12 border-t border-border/50 text-center">
-           <p className="text-[10px] text-muted leading-relaxed max-w-4xl mx-auto uppercase tracking-widest mb-8">
-             En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises. Les prix et disponibilités sont indiqués à titre informatif et sont susceptibles de changer.
-           </p>
-           <div className="flex flex-wrap justify-center gap-6 text-[10px] text-muted/60">
-             <span>© 2026 GTA6HQ - Tous droits réservés</span>
-             <Link href="/mentions-legales" className="underline">Mentions Légales</Link>
-             <Link href="/cookies" className="underline">Politique de Cookies</Link>
-             <span>Site créé par la communauté pour la communauté</span>
-           </div>
+        {/* CTA Banner */}
+        <div className="glass p-8 rounded-sm border border-orange/20 mb-16 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <p className="text-lg font-bebas tracking-wider text-white mb-1">
+              🔥 PRÉCOMMANDES OUVERTES — PRIX GARANTI AMAZON
+            </p>
+            <p className="text-sm text-muted font-inter">
+              Annulation gratuite avant livraison · Prix remboursé si baisse · Livraison jour J garantie
+            </p>
+          </div>
+          <a
+            href="https://amzn.to/4aiof6B"
+            target="_blank"
+            rel="nofollow sponsored"
+            aria-label="Précommander GTA 6 sur Amazon"
+            className="flex-shrink-0 inline-flex items-center gap-2 bg-orange text-white font-bebas text-lg px-8 py-4 rounded-sm hover:bg-[#FF5712] shadow-[0_0_20px_rgba(255,69,0,0.4)] transition-all shimmer-btn"
+          >
+            🎮 PRÉCOMMANDER GTA 6 →
+          </a>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-[10px] text-muted/60 font-mono">
+          <p className="text-center md:text-left leading-relaxed max-w-2xl">
+            En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises.
+            Les prix et disponibilités sont susceptibles de changer. GTA6HQ n&apos;est pas affilié à Rockstar Games ou Take-Two Interactive.
+          </p>
+          <div className="flex flex-wrap gap-6 justify-center">
+            <span>© 2026 GTA6HQ</span>
+            <Link href="/mentions-legales" className="hover:text-cyan transition-colors">Mentions Légales</Link>
+          </div>
         </div>
       </div>
     </footer>
