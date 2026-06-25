@@ -6,12 +6,12 @@ import SetupQuiz from "@/components/sections/SetupQuiz";
 import ReadinessChecker from "@/components/sections/ReadinessChecker";
 import FAQ from "@/components/sections/FAQ";
 import SocialProofTicker from "@/components/conversion/SocialProofTicker";
-import { PRODUCTS } from "@/data/products";
+import { PRODUCTS_FULL } from "@/data/products-full";
 import ProductCard from "@/components/ui/ProductCard";
 import Button from "@/components/ui/Button";
 
 export default function Home() {
-  const featuredProducts = PRODUCTS.slice(0, 6);
+  const featuredProducts = PRODUCTS_FULL.slice(0, 6);
 
   return (
     <div className="relative">
@@ -40,7 +40,7 @@ export default function Home() {
              <div className="relative aspect-video glass rounded-sm overflow-hidden group">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img 
-                  src="https://media.rockstargames.com/rockstargames-new/img/global/news/upload/gta-vi-trailer-1-screencaps/03.jpg" 
+                  src="/images/hero_bg.png" 
                   alt="Lucia and Jason" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />

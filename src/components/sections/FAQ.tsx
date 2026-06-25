@@ -19,7 +19,6 @@ export default function FAQ() {
           {FAQ_DATA.map((item, index) => (
             <div key={index} className="glass rounded-sm border border-border/50">
               <button
-                full-width
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-white/5 transition-colors"
               >

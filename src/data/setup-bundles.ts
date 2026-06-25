@@ -10,7 +10,7 @@ export const SETUP_BUNDLES: SetupBundle[] = [
     tier: 500,
     name: "Essentiel",
     description: "Le strict nécessaire pour commencer l'aventure à Vice City.",
-    productIds: ['gta-6-ps5', 'dualsense'],
+    productIds: ['gta-6-ps5', 'ps5-digital'],
   },
   {
     tier: 1000,

@@ -85,9 +85,9 @@ export default function ReadinessChecker() {
           <div className="text-center mt-8">
              <h3 className={cn("text-2xl md:text-4xl mb-2", status.color)}>{status.text}</h3>
              <p className="text-muted mb-8">{status.sub}</p>
-             <Button variant="amazon" shimmer onClick={() => window.open('https://amzn.to/4aiof6B', '_blank')}>
+             <a href="https://amzn.to/4aiof6B" target="_blank" rel="nofollow sponsored" className="inline-flex items-center justify-center rounded-sm px-6 py-3 text-lg font-bold bg-orange text-white hover:bg-[#FF5712] shadow-[0_0_20px_rgba(255,69,0,0.4)] transition-all duration-300 shimmer-btn">
                 S'ÉQUIPER MAINTENANT →
-             </Button>
+             </a>
           </div>
         </div>
       </div>

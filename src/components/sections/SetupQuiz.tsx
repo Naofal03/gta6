@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "../ui/Button";
-import { PRODUCTS } from "@/data/products";
+import { PRODUCTS_FULL as PRODUCTS } from "@/data/products-full";
 import ProductCard from "../ui/ProductCard";
 
 const QUESTIONS = [
@@ -98,9 +98,9 @@ export default function SetupQuiz() {
               </div>
 
               <div className="flex flex-col md:flex-row gap-4 justify-center">
-                <Button size="lg" variant="amazon" shimmer onClick={() => window.open('https://amzn.to/4aiof6B', '_blank')}>
+                <a href="https://amzn.to/4aiof6B" target="_blank" rel="nofollow sponsored" className="inline-flex items-center justify-center rounded-sm px-6 py-3 text-lg font-bebas bg-orange text-white hover:bg-[#FF5712] shadow-[0_0_20px_rgba(255,69,0,0.4)] transition-all duration-300 shimmer-btn">
                    TOUT VOIR SUR AMAZON
-                </Button>
+                </a>
                 <Button size="lg" variant="outline" onClick={() => { setStep(0); setIsFinished(false); setAnswers({}); }}>
                    RECOMMENCER LE QUIZ
                 </Button>

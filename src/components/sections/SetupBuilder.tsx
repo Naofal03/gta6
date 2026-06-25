@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SETUP_BUNDLES } from "@/data/setup-bundles";
-import { PRODUCTS } from "@/data/products";
+import { PRODUCTS_FULL as PRODUCTS } from "@/data/products-full";
 import { formatPrice } from "@/lib/utils";
 import Button from "../ui/Button";
 import ProductCard from "../ui/ProductCard";
@@ -79,9 +79,9 @@ export default function SetupBuilder() {
               <span className="text-3xl font-mono text-gold">{formatPrice(totalPrice)}</span>
             </div>
 
-            <Button variant="amazon" size="lg" className="w-full" shimmer onClick={() => window.open('https://amzn.to/4aiof6B', '_blank')}>
+            <a href="https://amzn.to/4aiof6B" target="_blank" rel="nofollow sponsored" className="w-full inline-flex items-center justify-center rounded-sm px-8 py-3.5 text-lg font-bebas bg-orange text-white hover:bg-[#FF5712] shadow-[0_0_20px_rgba(255,69,0,0.4)] transition-all duration-300 shimmer-btn">
               TOUT COMMANDER SUR AMAZON
-            </Button>
+            </a>
             <p className="text-[10px] text-center text-muted mt-4 font-mono">
               ✓ Livraison rapide disponible sur tous les articles
             </p>

@@ -23,13 +23,13 @@ export default function HistoirePage() {
                     <p className="text-muted leading-relaxed">Leonida n&apos;est pas seulement une map, c&apos;est un écosystème vivant. La densité de population, le comportement de la faune et les cycles météorologiques repoussent les limites du moteur RAGE 9.</p>
                  </div>
                  <div className="order-1 md:order-2 aspect-video bg-border rounded-sm overflow-hidden">
-                    <img src="https://media.rockstargames.com/rockstargames-new/img/global/news/upload/gta-vi-trailer-1-screencaps/05.jpg" alt="GTA 6 Leonida" className="w-full h-full object-cover" />
+                    <img src="/images/leonida_map.png" alt="GTA 6 Leonida" className="w-full h-full object-cover" />
                  </div>
               </div>
 
               <div className="grid md:grid-cols-2 gap-12 items-center">
                  <div className="aspect-video bg-border rounded-sm overflow-hidden">
-                    <img src="https://media.rockstargames.com/rockstargames-new/img/global/news/upload/gta-vi-trailer-1-screencaps/06.jpg" alt="GTA 6 Characters" className="w-full h-full object-cover" />
+                    <img src="/images/hero_bg.png" alt="GTA 6 Characters" className="w-full h-full object-cover" />
                  </div>
                  <div>
                     <h3 className="text-3xl mb-4 text-cyan">LUCIA & JASON</h3>

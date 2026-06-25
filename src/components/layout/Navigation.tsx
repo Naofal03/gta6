@@ -50,10 +50,10 @@ export default function Navigation() {
               {link.label}
             </Link>
           ))}
-          <Button variant="amazon" size="sm" onClick={() => window.open('https://amzn.to/4aiof6B', '_blank')}>
+          <a href="https://amzn.to/4aiof6B" target="_blank" rel="nofollow sponsored" className="inline-flex items-center justify-center rounded-sm text-sm font-bold bg-orange text-white hover:bg-[#FF5712] px-4 py-2 transition-colors">
             <ShoppingCart size={14} className="mr-2" />
             ACHETER
-          </Button>
+          </a>
         </div>
 
         {/* Mobile Toggle */}
@@ -85,9 +85,9 @@ export default function Navigation() {
                   {link.label}
                 </Link>
               ))}
-              <Button variant="amazon" size="lg" onClick={() => window.open('https://amzn.to/4aiof6B', '_blank')}>
+              <a href="https://amzn.to/4aiof6B" target="_blank" rel="nofollow sponsored" className="inline-flex items-center justify-center rounded-sm text-lg font-bebas bg-orange text-white hover:bg-[#FF5712] px-8 py-4 transition-colors">
                 PRÉCOMMANDER →
-              </Button>
+              </a>
             </div>
           </motion.div>
         )}

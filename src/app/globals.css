@@ -75,7 +75,7 @@ h1, h2, h3, h4 {
   pointer-events: none;
   opacity: 0.05;
   z-index: 9999;
-  background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+  background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png');
 }
 
 .shimmer-btn {

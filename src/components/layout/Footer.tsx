@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PRODUCTS } from "@/data/products";
+import { PRODUCTS_FULL as PRODUCTS } from "@/data/products-full";
 
 export default function Footer() {
   return (

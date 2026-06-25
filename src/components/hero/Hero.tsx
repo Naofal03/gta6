@@ -29,9 +29,10 @@ export default function Hero() {
           muted
           loop
           playsInline
+          poster="/images/hero_bg.png"
           className="h-full w-full object-cover"
         >
-          <source src="https://assets.rockstargames.com/videos/gta6/trailer1/1080p.mp4" type="video/mp4" />
+          <source src="https://videos.rockstargames.com/v3/V-gta-vi-trailer-1-en_us-1080p.mp4" type="video/mp4" />
         </video>
         
         {/* Parallax Layers */}
@@ -78,12 +79,12 @@ export default function Hero() {
             style={{ opacity }}
             className="flex flex-col md:flex-row gap-4 justify-center"
           >
-            <Button size="xl" variant="amazon" shimmer onClick={() => window.open('https://amzn.to/4aiof6B', '_blank')}>
+            <a href="https://amzn.to/4aiof6B" target="_blank" rel="nofollow sponsored" className="inline-flex items-center justify-center rounded-sm px-10 py-5 text-2xl font-bebas tracking-wider bg-orange text-white hover:bg-[#FF5712] shadow-[0_0_20px_rgba(255,69,0,0.4)] transition-all duration-300 active:scale-95 shimmer-btn">
               🎮 Précommander PS5 — 79,99€
-            </Button>
-            <Button size="xl" variant="amazon" shimmer onClick={() => window.open('https://amzn.to/4oIMhxq', '_blank')}>
+            </a>
+            <a href="https://amzn.to/4oIMhxq" target="_blank" rel="nofollow sponsored" className="inline-flex items-center justify-center rounded-sm px-10 py-5 text-2xl font-bebas tracking-wider bg-orange text-white hover:bg-[#FF5712] shadow-[0_0_20px_rgba(255,69,0,0.4)] transition-all duration-300 active:scale-95 shimmer-btn">
               🎮 Précommander Xbox — 79,99€
-            </Button>
+            </a>
           </motion.div>
           
           <div className="mt-4 flex gap-6 justify-center text-[10px] text-muted/60 font-mono">

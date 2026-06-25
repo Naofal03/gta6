@@ -43,7 +43,7 @@ export default function GTATimeline() {
           </div>
           
           {GTA_TIMELINE.map((item) => (
-            <div key={item.id} className="w-[60vw] h-[60vh] flex flex-col justify-center px-10 relative">
+            <div key={item.id} className="w-[60vw] h-[60vh] flex flex-col justify-center px-10 relative group">
                <div 
                  className="absolute top-0 left-0 w-1 h-full opacity-20" 
                  style={{ backgroundColor: item.color }} 
@@ -54,8 +54,15 @@ export default function GTATimeline() {
                <div className="mt-[-80px]">
                  <h3 className="text-4xl md:text-6xl mb-2" style={{ color: item.color }}>{item.title}</h3>
                  <p className="text-xs font-mono text-muted uppercase tracking-widest mb-6">{item.platform}</p>
-                 <p className="text-lg md:text-2xl max-w-md font-inter leading-relaxed">{item.fact}</p>
+                 <p className="text-lg md:text-2xl max-w-md font-inter leading-relaxed mb-8">{item.fact}</p>
+                 
                </div>
+               
+               {item.image && (
+                 <div className="absolute top-1/2 right-[10%] -translate-y-1/2 w-[300px] h-[200px] md:w-[500px] md:h-[300px] opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none">
+                    <img src={item.image} alt={item.title} className="w-full h-full object-cover rounded-sm border border-white/10" />
+                 </div>
+               )}
                
                <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-64 h-64 blur-[100px] opacity-20 pointer-events-none" style={{ backgroundColor: item.color }} />
             </div>
@@ -65,7 +72,7 @@ export default function GTATimeline() {
              <div className="text-center">
                 <h3 className="text-5xl mb-6">PRÊT POUR <br /><span className="text-orange">2026 ?</span></h3>
                 <button 
-                  onClick={() => window.scrollTo({ bottom: 0, behavior: 'smooth' })}
+                  onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}
                   className="bg-white text-black px-8 py-3 font-bebas text-xl hover:bg-cyan transition-colors"
                 >
                   DÉCOUVRIR LE SETUP →

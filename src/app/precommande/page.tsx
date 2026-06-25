@@ -3,7 +3,7 @@
 import { useTheme } from "next-themes";
 import Button from "@/components/ui/Button";
 import ProductCard from "@/components/ui/ProductCard";
-import { PRODUCTS } from "@/data/products";
+import { PRODUCTS_FULL as PRODUCTS } from "@/data/products-full";
 import { CheckCircle2, ShoppingCart, HelpCircle } from "lucide-react";
 import NeonText from "@/components/ui/NeonText";
 
@@ -48,10 +48,10 @@ export default function PrecommandePage() {
                          </ul>
                          <div className="flex items-center justify-between">
                             <span className="text-4xl font-bebas text-gold">79,99€</span>
-                            <Button variant="amazon" size="lg" shimmer onClick={() => window.open(game.amazonUrl, '_blank')}>
+                            <a href={game.amazonUrl} target="_blank" rel="nofollow sponsored" className="inline-flex items-center justify-center rounded-sm px-6 py-3 text-lg font-bebas bg-orange text-white hover:bg-[#FF5712] shadow-[0_0_20px_rgba(255,69,0,0.4)] transition-all duration-300 shimmer-btn">
                                <ShoppingCart className="mr-2" size={20} />
                                RESERVER
-                            </Button>
+                            </a>
                          </div>
                       </div>
                    </div>
