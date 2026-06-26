@@ -15,7 +15,7 @@ export default function FAQ() {
         <h2 className="text-5xl md:text-7xl mb-12 text-center underline decoration-cyan/30 underline-offset-8">
           FOIRE AUX <span className="text-cyan">QUESTIONS</span>
         </h2>
-        
+
         <div className="space-y-4">
           {FAQ_DATA.map((item, index) => (
             <div key={index} className="glass rounded-sm border border-border/50">
@@ -24,12 +24,12 @@ export default function FAQ() {
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-white/5 transition-colors"
               >
                 <span className="text-xl md:text-2xl font-bebas tracking-wide">{item.question}</span>
-                <ChevronDown 
-                  className={cn("transition-transform duration-300", 
-                  openIndex === index ? "rotate-180 text-cyan" : "text-muted")} 
+                <ChevronDown
+                  className={cn("transition-transform duration-300",
+                  openIndex === index ? "rotate-180 text-cyan" : "text-muted")}
                 />
               </button>
-              
+
               <AnimatePresence>
                 {openIndex === index && (
                   <motion.div

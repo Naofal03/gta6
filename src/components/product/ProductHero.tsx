@@ -142,8 +142,8 @@ export default function ProductHero({ product }: ProductHeroProps) {
           {/* Rating */}
           <div className="flex items-center gap-2">
             <StarRating rating={product.rating} />
-            <a 
-              href="#reviews" 
+            <a
+              href="#reviews"
               onClick={handleReviewScroll}
               className="text-xs text-muted hover:text-cyan hover:underline transition-colors"
             >
@@ -213,7 +213,7 @@ export default function ProductHero({ product }: ProductHeroProps) {
               <ShoppingCart size={20} className="mr-2" />
               VOIR LE PRIX ET COMMANDER SUR AMAZON →
             </a>
-            
+
             <a
               href="#alternatives"
               onClick={handleCompareScroll}

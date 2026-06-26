@@ -135,6 +135,7 @@ export default async function ProductPage({ params }: PageProps) {
         <VideoReview videos={product.videos} productName={product.name} amazonUrl={product.amazonUrl} />
       )}
 
+
       {/* Amazon ratings & buyer reviews */}
       <ReviewsSection product={product} />
 

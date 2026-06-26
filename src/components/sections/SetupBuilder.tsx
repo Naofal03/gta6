@@ -32,8 +32,8 @@ export default function SetupBuilder() {
               onClick={() => setActiveTier(tier)}
               className={cn(
                 "px-8 py-3 font-bebas text-xl border transition-all duration-300",
-                activeTier === tier 
-                  ? "border-cyan bg-cyan/10 text-cyan shadow-[0_0_20px_rgba(0,255,204,0.1)]" 
+                activeTier === tier
+                  ? "border-cyan bg-cyan/10 text-cyan shadow-[0_0_20px_rgba(0,255,204,0.1)]"
                   : "border-border text-muted hover:border-muted"
               )}
             >
@@ -65,7 +65,7 @@ export default function SetupBuilder() {
             <p className="text-muted text-sm mb-6 pb-6 border-b border-border">
               {currentBundle.description}
             </p>
-            
+
             <div className="space-y-4 mb-8">
               {bundleProducts.map((p) => (
                 <div key={p.id} className="flex justify-between text-sm">
