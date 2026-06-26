@@ -79,11 +79,11 @@ export default function Hero() {
             style={{ opacity }}
             className="flex flex-col md:flex-row gap-4 justify-center"
           >
-            <a href="https://amzn.to/4aiof6B" target="_blank" rel="nofollow sponsored" className="inline-flex items-center justify-center rounded-sm px-10 py-5 text-2xl font-bebas tracking-wider bg-orange text-white hover:bg-[#FF5712] shadow-[0_0_20px_rgba(255,69,0,0.4)] transition-all duration-300 active:scale-95 shimmer-btn">
-              🎮 Précommander PS5 — 79,99€
+            <a href="/guides/precommande-gta6-ps5" className="inline-flex items-center justify-center rounded-sm px-10 py-5 text-2xl font-bebas tracking-wider bg-orange text-white hover:bg-[#FF5712] shadow-[0_0_20px_rgba(255,69,0,0.4)] transition-all duration-300 active:scale-95 shimmer-btn">
+              🎮 Précommander sur PS5 — 79,99€
             </a>
-            <a href="https://amzn.to/4oIMhxq" target="_blank" rel="nofollow sponsored" className="inline-flex items-center justify-center rounded-sm px-10 py-5 text-2xl font-bebas tracking-wider bg-orange text-white hover:bg-[#FF5712] shadow-[0_0_20px_rgba(255,69,0,0.4)] transition-all duration-300 active:scale-95 shimmer-btn">
-              🎮 Précommander Xbox — 79,99€
+            <a href="/guides/precommande-gta6-xbox" className="inline-flex items-center justify-center rounded-sm px-10 py-5 text-2xl font-bebas tracking-wider bg-background border border-border text-white hover:bg-neutral-900 transition-all duration-300 active:scale-95">
+              🎮 Précommander sur Xbox — 79,99€
             </a>
           </motion.div>
           

@@ -10,46 +10,44 @@ interface GuideCard {
   icon: any;
   accentColor: string;
 }
-
 const POPULAR_GUIDES: GuideCard[] = [
   {
-    title: "Précommande GTA 6 : où l'acheter au meilleur prix ?",
-    description: "Le guide d'achat complet pour réserver votre jeu sur PS5 et Xbox Series au tarif le plus bas garanti.",
-    category: "Précommande",
-    slug: "precommande-gta-6-meilleur-prix",
-    readTime: "6 min",
+    title: "Précommande GTA 6 PS5 — Guide d'achat 2026",
+    description: "Réservez votre édition physique ou numérique au meilleur prix et découvrez les accessoires indispensables.",
+    category: "Précommande PS5",
+    slug: "precommande-gta6-ps5",
+    readTime: "4 min",
     icon: ShoppingBag,
     accentColor: "from-orange to-red-500",
   },
   {
-    title: "Meilleur SSD PS5 pour GTA 6 — Comparatif 2026",
-    description: "GTA 6 pèsera 150 Go. Quel SSD NVMe PCIe 4.0 ultra-rapide choisir pour ne pas manquer de stockage ?",
-    category: "Stockage SSD",
-    slug: "meilleur-ssd-gta6",
+    title: "SSD Requis pour GTA 6 sur PS5",
+    description: "GTA 6 pèsera environ 150 Go. Quel SSD NVMe PCIe 4.0 ultra-rapide choisir pour ne pas saturer votre console ?",
+    category: "SSD PS5",
+    slug: "gta6-ssd-ps5-requis",
     readTime: "5 min",
     icon: HardDrive,
     accentColor: "from-cyan to-blue-500",
   },
   {
-    title: "Meilleure TV 4K pour GTA 6 — Comparatif Gaming 2026",
-    description: "Vitesse 120Hz, HDMI 2.1, HDR... Les critères essentiels pour sublimer les graphismes de Vice City.",
-    category: "Affichage TV",
-    slug: "meilleure-tv-gta6",
+    title: "PS5 Pro vs PS5 Slim pour GTA 6",
+    description: "GPU boosté, PSSR, Ray-Tracing avancé... Quelle version de la PS5 offre la meilleure expérience sur GTA VI ?",
+    category: "Comparatif Console",
+    slug: "ps5-pro-vs-ps5-slim-gta6",
     readTime: "5 min",
     icon: Monitor,
     accentColor: "from-pink-500 to-purple-500",
   },
   {
-    title: "GTA 6 Édition Standard vs Ultimate — Laquelle choisir ?",
-    description: "Analyse complète des bonus numériques, des crédits GTA Online et du rapport qualité/prix réel.",
-    category: "Comparatif",
-    slug: "edition-standard-vs-ultimate",
-    readTime: "4 min",
+    title: "Configuration PC requise pour GTA 6",
+    description: "Specs minimales, recommandées et estimations matérielles pour faire tourner GTA VI en 4K 60 FPS sur PC.",
+    category: "Configuration PC",
+    slug: "config-pc-gta6",
+    readTime: "6 min",
     icon: ShieldAlert,
-    accentColor: "from-gold to-yellow-600",
+    accentColor: "from-blue-500 to-indigo-600",
   },
 ];
-
 export default function PopularGuides() {
   return (
     <section className="py-24 px-6 bg-surface border-y border-border/50 relative overflow-hidden">
