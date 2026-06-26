@@ -36,7 +36,7 @@ function parseCSV(filePath: string): PinRow[] {
     const columns = lines[i].match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || [];
     if (columns.length >= 5) {
       // Clean quotes
-      const clean = (str: string) => str.replace(/^"|"$/g, '').trim();
+      const clean = (str: string | undefined) => (str || '').replace(/^"|"$/g, '').trim();
       rows.push({
         index: i.toString().padStart(3, '0'),
         angle: clean(columns[0]),
