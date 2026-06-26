@@ -27,6 +27,7 @@ const NAV_COLUMNS: FooterColumn[] = [
   {
     title: "Guides Experts",
     links: [
+      { label: "Où l'acheter au meilleur prix ?", href: "/guides/precommande-gta-6-meilleur-prix" },
       { label: "Quel SSD pour GTA 6 ?", href: "/guides/meilleur-ssd-gta6" },
       { label: "Meilleure TV 4K Gaming", href: "/guides/meilleure-tv-gta6" },
       { label: "Standard vs Ultimate", href: "/guides/edition-standard-vs-ultimate" },

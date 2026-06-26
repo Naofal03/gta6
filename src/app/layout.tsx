@@ -6,6 +6,7 @@ import StickyBar from "@/components/layout/StickyBar";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
 import PromoBar from "@/components/ui/PromoBar";
+import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -43,6 +44,9 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     type: "website",
   },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GSC_VERIFICATION,
+  },
 };
 
 export default function RootLayout({
@@ -61,6 +65,22 @@ export default function RootLayout({
         )}
       >
         <div className="noise-overlay" />
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
+              `}
+            </Script>
+          </>
+        )}
         <PromoBar />
         <StickyBar />
         <Navigation />

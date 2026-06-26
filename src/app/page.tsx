@@ -15,6 +15,7 @@ import SocialProofTicker from "@/components/conversion/SocialProofTicker";
 import { PRODUCTS_FULL } from "@/data/products-full";
 import ProductCard from "@/components/ui/ProductCard";
 import StorySection from "@/components/sections/StorySection";
+import PopularGuides from "@/components/sections/PopularGuides";
 
 export const metadata: Metadata = {
   title: "GTA 6 Date de Sortie, Précommande & Setup — GTA6HQ",
@@ -85,6 +86,7 @@ export default function Home() {
       <AudioGuide />
       <GamingRoom />
       <SetupQuiz />
+      <PopularGuides />
       <ReadinessChecker />
       <FAQ />
     </div>
