@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://gta6hq.fr';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://gta6-pi-cyan.vercel.app';
   const now = new Date();
 
   const productUrls: MetadataRoute.Sitemap = PRODUCTS_FULL.map((p) => ({
