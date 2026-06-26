@@ -7,7 +7,7 @@ export default function MentionsLegales() {
         <section className="mb-12">
           <h2 className="text-2xl font-bebas text-cyan mb-4">1. PRÉSENTATION DU SITE</h2>
           <p className="text-muted">
-            Le site <strong>GTA6HQ.fr</strong> est un site d&apos;information et de comparaison d&apos;articles gaming spécialisé dans l&apos;univers Grand Theft Auto VI.
+            Le site <strong>gta6-pi-cyan.vercel.app</strong> est un site d&apos;information et de comparaison d&apos;articles gaming spécialisé dans l&apos;univers Grand Theft Auto VI.
           </p>
         </section>
 
@@ -38,7 +38,7 @@ export default function MentionsLegales() {
         <section className="mb-12">
             <h2 className="text-2xl font-bebas text-cyan mb-4">5. CONTACT</h2>
             <p className="text-muted">
-                Pour toute question, vous pouvez nous contacter à l&apos;adresse suivante : contact@gta6hq.fr
+                Pour toute question, vous pouvez nous contacter via le site : gta6-pi-cyan.vercel.app
             </p>
         </section>
       </div>

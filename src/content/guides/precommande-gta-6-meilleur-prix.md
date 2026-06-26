@@ -4,7 +4,7 @@ description: "Où précommander GTA 6 sur PS5 et Xbox Series X au meilleur prix 
 date: "2026-06-26"
 category: "Guide Précommande"
 duration: "6 min"
-canonical: "https://gta6hq.fr/guides/precommande-gta-6-meilleur-prix"
+canonical: "https://gta6-pi-cyan.vercel.app/guides/precommande-gta-6-meilleur-prix"
 ---
 
 L'attente touche bientôt à sa fin. Prévu pour le **19 novembre 2026**, Grand Theft Auto VI s'annonce déjà comme le plus grand événement de l'histoire du jeu vidéo. Les précommandes sont officiellement ouvertes et de nombreux revendeurs rivalisent d'offres pour vous proposer le jeu. 

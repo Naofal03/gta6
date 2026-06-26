@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title,
     description: description.substring(0, 155),
     alternates: {
-      canonical: `https://gta6hq.fr/produits/${product.id}`,
+      canonical: `https://gta6-pi-cyan.vercel.app/produits/${product.id}`,
     },
     openGraph: {
       title,
@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       type: "article",
       images: [
         {
-          url: product.image.startsWith("/") ? `https://gta6hq.fr${product.image}` : product.image,
+          url: product.image.startsWith("/") ? `https://gta6-pi-cyan.vercel.app${product.image}` : product.image,
           width: 1200,
           height: 630,
           alt: product.name,
@@ -82,7 +82,7 @@ export default async function ProductPage({ params }: PageProps) {
     "@type": "Product",
     "name": product.name,
     "description": product.description,
-    "image": product.image.startsWith("/") ? `https://gta6hq.fr${product.image}` : product.image,
+    "image": product.image.startsWith("/") ? `https://gta6-pi-cyan.vercel.app${product.image}` : product.image,
     "sku": product.id,
     "mpn": product.id,
     "brand": {

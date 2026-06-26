@@ -14,6 +14,7 @@ export interface GuideMetadata {
   duration: string;
   canonical?: string;
   coverImage?: string;
+  primaryProduct?: string;
 }
 
 export interface HeadingItem {
@@ -247,16 +248,13 @@ function GuideProductCard({ id }: { id: string }) {
   const Icon = isGame ? ShoppingCart : product.category === "ssd" ? HardDrive : Monitor;
 
   return (
-    <div className="glass p-8 rounded-sm border border-border/50 relative mb-12 hover:border-orange/20 transition-all duration-300">
-      {product.badge && (
-        <div className="absolute -top-3 left-6">
-          <span className="bg-gold text-black text-[9px] font-bold px-3 py-1 uppercase tracking-widest flex items-center gap-1">
-            <Star size={8} className="fill-black" />
-            {product.badge}
-          </span>
-        </div>
-      )}
-      <div className="flex flex-col md:flex-row gap-8 items-start">
+    <div className="glass p-8 rounded-sm border-2 border-orange/50 relative mb-12 hover:border-orange transition-all duration-300 shadow-[0_0_30px_rgba(255,69,0,0.1)]">
+      <div className="absolute -top-4 left-6">
+        <span className="bg-orange text-white text-[11px] font-bebas px-4 py-1.5 uppercase tracking-widest flex items-center gap-2 shadow-lg">
+          🥇 Recommandé pour GTA 6
+        </span>
+      </div>
+      <div className="flex flex-col md:flex-row gap-8 items-start mt-2">
         {product.image && (
           <div className="flex-shrink-0 w-32 h-32 flex items-center justify-center bg-black/25 p-2 rounded-sm border border-border/20 self-center md:self-start">
             <img
@@ -275,18 +273,17 @@ function GuideProductCard({ id }: { id: string }) {
               </span>
             </div>
           </div>
-          <p className="text-muted text-sm font-inter mb-4 leading-relaxed">{product.verdict}</p>
           
-          {/* Specifications Highlight */}
+          {/* 3 Bullet Points Highlight */}
           {product.specs && product.specs.length > 0 && (
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
+            <ul className="space-y-3 mb-6">
               {product.specs.slice(0, 3).map((spec, j) => (
-                <div key={j} className="bg-white/5 border border-white/5 rounded-sm p-2 text-center">
-                  <span className="block text-[9px] text-muted font-mono uppercase tracking-widest mb-1">{spec.label}</span>
-                  <span className="block text-xs font-bold text-white font-mono">{spec.value}</span>
-                </div>
+                <li key={j} className="flex items-start gap-2 text-sm text-white font-inter">
+                  <CheckCircle2 size={16} className="text-trust flex-shrink-0 mt-0.5" />
+                  <span><strong className="text-cyan">{spec.label} :</strong> {spec.value}</span>
+                </li>
               ))}
-            </div>
+            </ul>
           )}
           
           <div className="flex items-center gap-4 flex-wrap mt-4 justify-between border-t border-border/30 pt-4">
@@ -369,7 +366,91 @@ function GuideCTA({ title, subtitle, url, text }: { title: string; subtitle: str
   );
 }
 
-// 4. Custom Alerts
+// 4. Comparison Table Section
+function GuideComparison({ ids }: { ids: string[] }) {
+  const products = ids.map(id => PRODUCTS_FULL.find(p => p.id === id)).filter(Boolean);
+  
+  if (products.length === 0) return null;
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+      {products.map((product, idx) => {
+        if (!product) return null;
+        const tier = idx === 0 ? "🥇 Premium" : idx === 1 ? "🥈 Équilibré" : "🥉 Budget";
+        const tierColor = idx === 0 ? "text-orange border-orange/50 bg-orange/5" : idx === 1 ? "text-cyan border-cyan/30 bg-cyan/5" : "text-muted border-border/30 bg-white/5";
+        
+        return (
+          <div key={product.id} className={`glass p-6 rounded-sm border flex flex-col ${tierColor} relative overflow-hidden transition-all hover:scale-[1.02]`}>
+            {idx === 0 && <div className="absolute top-0 right-0 w-32 h-32 bg-orange/10 blur-2xl rounded-full -translate-y-1/2 translate-x-1/2" />}
+            
+            <span className="text-[10px] font-mono uppercase tracking-widest mb-4 font-bold">{tier}</span>
+            
+            {product.image && (
+              <div className="h-32 mb-6 flex items-center justify-center p-2 bg-black/20 rounded-sm">
+                <img src={product.image} alt={product.name} className="object-contain max-w-full max-h-full" />
+              </div>
+            )}
+            
+            <h4 className="text-xl font-bebas tracking-wide text-white mb-2 uppercase flex-1">{product.name}</h4>
+            
+            <div className="mb-6">
+              <span className="text-gold font-mono text-xl font-bold">{formatPrice(product.price)}</span>
+            </div>
+            
+            <a
+              href={product.amazonUrl}
+              target="_blank"
+              rel="nofollow sponsored"
+              className={`w-full text-center py-3 rounded-sm font-bebas text-lg transition-colors ${
+                idx === 0 ? "bg-orange text-white hover:bg-[#FF5712]" : "bg-white/10 text-white hover:bg-white/20"
+              }`}
+            >
+              VOIR SUR AMAZON
+            </a>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+// 5. Upsell Grid Section
+function GuideUpsell({ ids }: { ids: string[] }) {
+  const products = ids.map(id => PRODUCTS_FULL.find(p => p.id === id)).filter(Boolean);
+  
+  if (products.length === 0) return null;
+
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+      {products.map((product) => {
+        if (!product) return null;
+        return (
+          <div key={product.id} className="glass p-4 rounded-sm border border-border/50 flex items-center gap-4 hover:border-orange/30 transition-colors">
+            {product.image && (
+              <div className="w-16 h-16 flex-shrink-0 bg-black/20 p-2 rounded-sm flex items-center justify-center">
+                <img src={product.image} alt={product.name} className="object-contain max-w-full max-h-full" />
+              </div>
+            )}
+            <div className="flex-1 min-w-0">
+              <h5 className="text-white font-bebas text-lg truncate uppercase">{product.name}</h5>
+              <span className="text-gold font-mono text-sm font-bold block mb-2">{formatPrice(product.price)}</span>
+              <a
+                href={product.amazonUrl}
+                target="_blank"
+                rel="nofollow sponsored"
+                className="text-[10px] uppercase font-mono tracking-widest text-cyan hover:text-white transition-colors flex items-center gap-1"
+              >
+                Acheter <ShoppingCart size={10} />
+              </a>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+// 6. Custom Alerts
 function GuideAlert({ type, text }: { type: 'info' | 'warning' | 'error'; text: string }) {
   const isError = type === 'error';
   const isWarning = type === 'warning';
@@ -572,7 +653,7 @@ function MarkdownTextSection({ text }: { text: string }) {
   return <>{elements}</>;
 }
 
-const COMPONENT_REGEX = /(\[Product\s+[^\]]+\]|\[ProsCons\s+[^\]]+\]|\[CTA\s+[^\]]+\]|\[Alert\s+[^\]]+\])/g;
+const COMPONENT_REGEX = /(\[Product\s+[^\]]+\]|\[ProsCons\s+[^\]]+\]|\[CTA\s+[^\]]+\]|\[Alert\s+[^\]]+\]|\[Comparison\s+[^\]]+\]|\[Upsell\s+[^\]]+\])/g;
 
 // Render Markdown Body to React Server Nodes
 export function renderMarkdown(body: string): React.ReactNode[] {
@@ -634,6 +715,18 @@ export function renderMarkdown(body: string): React.ReactNode[] {
             text={textMatch ? textMatch[1] : ""}
           />
         );
+      }
+
+      if (trimmed.startsWith("[Comparison ")) {
+        const idsMatch = trimmed.match(/ids="([^"]+)"/);
+        const ids = idsMatch ? idsMatch[1].split(",").map(i => i.trim()) : [];
+        return <GuideComparison key={index} ids={ids} />;
+      }
+
+      if (trimmed.startsWith("[Upsell ")) {
+        const idsMatch = trimmed.match(/ids="([^"]+)"/);
+        const ids = idsMatch ? idsMatch[1].split(",").map(i => i.trim()) : [];
+        return <GuideUpsell key={index} ids={ids} />;
       }
 
       return <MarkdownTextSection key={index} text={part} />;

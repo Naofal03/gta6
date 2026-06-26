@@ -5,6 +5,7 @@ date: "2026-06-26"
 category: "Money Page"
 duration: "6 min"
 canonical: "https://gta6-pi-cyan.vercel.app/guides/config-pc-gta6"
+primaryProduct: "pc-gamer-rtx4070"
 ---
 
 Même si le jeu sort en premier sur consoles, la communauté PC se demande déjà : **quelle configuration PC sera requise pour faire tourner GTA 6 à sa sortie ?** 

@@ -5,6 +5,7 @@ date: "2026-06-26"
 category: "Money Page"
 duration: "6 min"
 canonical: "https://gta6-pi-cyan.vercel.app/guides/meilleure-tv-4k-gta6"
+primaryProduct: "lg-oled-c3"
 ---
 
 GTA 6 est conçu pour repousser les limites visuelles de la génération actuelle de consoles. Pour afficher Vice City avec toute la richesse de ses couleurs HDR, de ses contrastes nocturnes et avec une fluidité parfaite à 60 images par seconde, votre téléviseur doit être à la hauteur.

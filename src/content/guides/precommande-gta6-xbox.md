@@ -4,7 +4,8 @@ description: "Précommandez GTA 6 sur Xbox Series X au meilleur prix garanti Ama
 date: "2026-06-26"
 category: "Money Page"
 duration: "4 min"
-canonical: "https://gta6hq.fr/guides/precommande-gta6-xbox"
+canonical: "https://gta6-pi-cyan.vercel.app/guides/precommande-gta6-xbox"
+primaryProduct: "gta-6-xbox-series"
 ---
 
 GTA 6 arrive le **19 novembre 2026** sur Xbox Series X et Xbox Series S. Si vous êtes dans l'écosystème Xbox, voici exactement ce que vous devez précommander maintenant et quels accessoires ajouter pour vivre Vice City dans des conditions optimales.

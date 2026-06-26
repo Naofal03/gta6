@@ -4,6 +4,9 @@ import fs from "fs";
 import path from "path";
 import { getGuideBySlug, renderMarkdown } from "@/lib/markdown";
 import GuideLayout from "@/components/ui/GuideLayout";
+import StickyBuyBar from "@/components/conversion/StickyBuyBar";
+import { PRODUCTS_FULL } from "@/data/products-full";
+import { formatPrice } from "@/lib/utils";
 import Link from "next/link";
 import { ArrowRight, BookOpen } from "lucide-react";
 
@@ -44,7 +47,7 @@ export async function generateMetadata({ params }: GuidePageProps): Promise<Meta
     };
   }
 
-  const canonicalUrl = guide.metadata.canonical || `https://gta6hq.fr/guides/${slug}`;
+  const canonicalUrl = guide.metadata.canonical || `https://gta6-pi-cyan.vercel.app/guides/${slug}`;
 
   return {
     title: `${guide.metadata.title} | GTA6HQ`,
@@ -60,7 +63,7 @@ export async function generateMetadata({ params }: GuidePageProps): Promise<Meta
       authors: ["GTA6HQ Editorial"],
       images: [
         {
-          url: guide.metadata.coverImage || "https://gta6hq.fr/images/hero_bg.png",
+          url: guide.metadata.coverImage || "https://gta6-pi-cyan.vercel.app/images/hero_bg.png",
           width: 1200,
           height: 630,
           alt: guide.metadata.title,
@@ -116,21 +119,26 @@ export default async function GuidePage({ params }: GuidePageProps) {
     "author": {
       "@type": "Organization",
       "name": "GTA6HQ Editorial",
-      "url": "https://gta6hq.fr"
+      "url": "https://gta6-pi-cyan.vercel.app"
     },
     "publisher": {
       "@type": "Organization",
       "name": "GTA6HQ",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://gta6hq.fr/images/logo.png"
+        "url": "https://gta6-pi-cyan.vercel.app/images/logo.png"
       }
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://gta6hq.fr/guides/${slug}`
+      "@id": `https://gta6-pi-cyan.vercel.app/guides/${slug}`
     }
   };
+
+  // Resolve primary product for sticky conversion bar
+  const primaryProduct = guide.metadata.primaryProduct
+    ? PRODUCTS_FULL.find((p) => p.id === guide.metadata.primaryProduct)
+    : null;
 
   return (
     <>
@@ -138,7 +146,15 @@ export default async function GuidePage({ params }: GuidePageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <GuideLayout metadata={guide.metadata} headings={guide.headings}>
+      {/* Sticky Amazon Buy Bar */}
+      {primaryProduct && (
+        <StickyBuyBar
+          productName={primaryProduct.name}
+          price={formatPrice(primaryProduct.price)}
+          amazonUrl={primaryProduct.amazonUrl}
+        />
+      )}
+      <GuideLayout metadata={guide.metadata} headings={guide.headings} primaryProduct={primaryProduct}>
         {/* Render markdown parsed content */}
         <div className="prose prose-invert max-w-none prose-p:leading-relaxed prose-headings:font-bebas">
           {renderMarkdown(guide.content)}

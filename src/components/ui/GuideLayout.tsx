@@ -19,10 +19,11 @@ interface GuideLayoutProps {
     duration: string;
   };
   headings: HeadingItem[];
+  primaryProduct?: any;
   children: React.ReactNode;
 }
 
-export default function GuideLayout({ metadata, headings, children }: GuideLayoutProps) {
+export default function GuideLayout({ metadata, headings, primaryProduct, children }: GuideLayoutProps) {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeId, setActiveId] = useState("");
 
@@ -98,6 +99,24 @@ export default function GuideLayout({ metadata, headings, children }: GuideLayou
           <h1 className="text-4xl md:text-7xl leading-tight font-bebas mb-6 uppercase tracking-wider text-white">
             {metadata.title}
           </h1>
+          
+          {/* Hero CTA - Above the fold decision */}
+          {primaryProduct && (
+            <div className="mb-8 p-6 glass border-l-4 border-orange bg-orange/5 rounded-r-sm inline-block">
+              <p className="text-white font-bebas text-xl mb-4 tracking-wide uppercase">
+                🥇 Recommandé pour GTA 6 : <span className="text-orange">{primaryProduct.name}</span>
+              </p>
+              <a
+                href={primaryProduct.amazonUrl}
+                target="_blank"
+                rel="nofollow sponsored"
+                className="inline-flex items-center gap-2 bg-orange text-white font-bebas text-lg px-8 py-4 rounded-sm hover:bg-[#FF5712] shadow-[0_0_20px_rgba(255,69,0,0.4)] transition-all shimmer-btn"
+              >
+                🎮 ACHETER SUR AMAZON →
+              </a>
+            </div>
+          )}
+
           <div className="flex flex-wrap gap-6 text-xs text-muted font-mono border-t border-border/20 pt-6">
             <span className="flex items-center gap-1.5">
               <Calendar size={12} className="text-orange" />

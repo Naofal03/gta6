@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: "GTA6HQ — Le site de référence français sur GTA 6",
     description:
       "Précommandez GTA 6, préparez votre setup et découvrez tous nos guides pour vivre Vice City dans les meilleures conditions.",
-    images: [{ url: "https://gta6hq.fr/images/hero_bg.png", width: 1200, height: 630 }],
+    images: [{ url: "https://gta6-pi-cyan.vercel.app/images/hero_bg.png", width: 1200, height: 630 }],
   },
 };
 

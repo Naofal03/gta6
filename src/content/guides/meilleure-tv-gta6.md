@@ -4,7 +4,7 @@ description: "Quelle TV choisir pour profiter des graphismes de GTA 6 ? Notre co
 date: "2026-06-26"
 category: "Guide TV"
 duration: "5 min"
-canonical: "https://gta6hq.fr/guides/meilleure-tv-gta6"
+canonical: "https://gta6-pi-cyan.vercel.app/guides/meilleure-tv-gta6"
 ---
 
 Grand Theft Auto VI s'annonce comme le sommet technologique de cette décennie. Entre la reconstitution photoréaliste de Miami (Vice City), les effets de lumière avancés par Ray-Tracing et les cycles jour-nuit, le jeu a été conçu pour tourner en **4K HDR** et jusqu'à **120 FPS** sur PS5 Pro.

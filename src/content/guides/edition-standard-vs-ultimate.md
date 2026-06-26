@@ -4,7 +4,7 @@ description: "GTA 6 Standard à 79,99€ ou Ultimate à 99,99€ ? Notre analyse
 date: "2026-06-26"
 category: "Comparatif Éditions"
 duration: "4 min"
-canonical: "https://gta6hq.fr/guides/edition-standard-vs-ultimate"
+canonical: "https://gta6-pi-cyan.vercel.app/guides/edition-standard-vs-ultimate"
 ---
 
 Avec l'ouverture des précommandes de Grand Theft Auto VI pour le **19 novembre 2026**, les joueurs se retrouvent face à un choix : se contenter de l'édition Standard ou craquer pour l'édition Ultimate ? 

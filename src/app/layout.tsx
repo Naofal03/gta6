@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "GTA6HQ | L'expérience ultime GTA 6",
     description: "Préparez la sortie de GTA 6 avec nos guides exclusifs et le meilleur du hardware gaming.",
-    url: "https://gta6hq.fr",
+    url: "https://gta6-pi-cyan.vercel.app",
     siteName: "GTA6HQ",
     images: [
       {

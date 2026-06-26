@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Quiz : Quel Setup GTA 6 Est Fait Pour Toi ? | GTA6HQ",
   description:
     "5 questions pour découvrir exactement quel setup GTA 6 correspond à votre profil et budget. Résultat instantané avec nos recommandations personnalisées.",
-  alternates: { canonical: "https://gta6hq.fr/quiz" },
+  alternates: { canonical: "https://gta6-pi-cyan.vercel.app/quiz" },
 };
 
 export default function QuizPage() {

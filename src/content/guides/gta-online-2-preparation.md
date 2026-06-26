@@ -5,6 +5,7 @@ date: "2026-06-26"
 category: "Money Page"
 duration: "5 min"
 canonical: "https://gta6-pi-cyan.vercel.app/guides/gta-online-2-preparation"
+primaryProduct: "netgear-nighthawk"
 ---
 
 Le mode multijoueur de GTA 6 — souvent appelé **GTA Online 2** — s'annonce comme le projet le plus ambitieux de Rockstar. Avec des serveurs pouvant accueillir des centaines de joueurs simultanément dans un Vice City ultra-détaillé, la stabilité de votre connexion internet sera cruciale.

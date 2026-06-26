@@ -4,7 +4,7 @@ description: "GTA 6 nécessite un SSD NVMe ultra-rapide d'au moins 150 Go. Déco
 date: "2026-06-26"
 category: "Guide SSD"
 duration: "5 min"
-canonical: "https://gta6hq.fr/guides/meilleur-ssd-gta6"
+canonical: "https://gta6-pi-cyan.vercel.app/guides/meilleur-ssd-gta6"
 ---
 
 Grand Theft Auto VI s'annonce colossal avec un univers d'une richesse inégalée. Pour faire tourner ce monde ouvert sans chargements perceptibles, le jeu va peser environ **150 Go** et nécessitera un SSD extrêmement rapide sur votre PS5 ou votre PS5 Pro.

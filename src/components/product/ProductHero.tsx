@@ -54,19 +54,19 @@ export default function ProductHero({ product }: ProductHeroProps) {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Accueil",
-                "item": "https://gta6hq.fr"
+                "item": "https://gta6-pi-cyan.vercel.app"
               },
               {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Produits",
-                "item": "https://gta6hq.fr/produits"
+                "item": "https://gta6-pi-cyan.vercel.app/produits"
               },
               {
                 "@type": "ListItem",
                 "position": 3,
                 "name": product.name,
-                "item": `https://gta6hq.fr/produits/${product.id}`
+                "item": `https://gta6-pi-cyan.vercel.app/produits/${product.id}`
               }
             ]
           })
