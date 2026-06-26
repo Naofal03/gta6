@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Monitor, Zap, Eye, Volume2 } from "lucide-react";
+import { Monitor, Zap, Eye, Volume2, FileText } from "lucide-react";
 import Link from "next/link";
 import { PRODUCTS_FULL } from "@/data/products-full";
 import Image from "next/image";
@@ -75,25 +75,34 @@ export default function TVGuide() {
                   width={112}
                   height={80}
                   className="object-contain w-full h-full"
-                  unoptimized={product.image.startsWith('http')}
+                  unoptimized
                 />
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-xs text-muted font-mono uppercase tracking-widest mb-1">{product.category.toUpperCase()}</p>
                 <h4 className="text-lg font-bebas tracking-wider mb-1 truncate">{product.name}</h4>
                 <p className="text-xs text-muted mb-3 truncate">{product.sellingPoint}</p>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-2 flex-wrap">
                   <span className="text-gold font-mono text-xl font-bold">{formatPrice(product.price)}</span>
-                  <a
-                    href={product.amazonUrl}
-                    target="_blank"
-                    rel="nofollow sponsored"
-                    aria-label={`Commander ${product.name} sur Amazon`}
-                    className="inline-flex items-center gap-1.5 bg-orange text-white text-xs font-bold px-4 py-2 rounded-sm hover:bg-[#FF5712] transition-colors shimmer-btn"
-                  >
-                    <Monitor size={12} />
-                    AMAZON
-                  </a>
+                  <div className="flex gap-2">
+                    <a
+                      href={product.amazonUrl}
+                      target="_blank"
+                      rel="nofollow sponsored"
+                      aria-label={`Commander ${product.name} sur Amazon`}
+                      className="inline-flex items-center gap-1.5 bg-orange text-white text-xs font-bold px-3 py-2 rounded-sm hover:bg-[#FF5712] transition-colors shimmer-btn"
+                    >
+                      <Monitor size={12} />
+                      AMAZON
+                    </a>
+                    <Link
+                      href={`/produits/${product.id}`}
+                      className="inline-flex items-center gap-1.5 border border-cyan/30 text-cyan text-xs font-bold px-3 py-2 rounded-sm hover:bg-cyan/10 hover:border-cyan transition-colors"
+                    >
+                      <FileText size={12} />
+                      FICHE →
+                    </Link>
+                  </div>
                 </div>
               </div>
             </motion.div>

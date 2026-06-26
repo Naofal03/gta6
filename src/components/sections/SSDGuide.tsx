@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { AlertTriangle, Zap, HardDrive, Clock } from "lucide-react";
+import { AlertTriangle, Zap, HardDrive, Clock, FileText } from "lucide-react";
 import Link from "next/link";
 import { PRODUCTS_FULL } from "@/data/products-full";
 import Image from "next/image";
@@ -177,23 +177,32 @@ export default function SSDGuide() {
                   width={96}
                   height={96}
                   className="object-contain w-full h-full"
-                  unoptimized={product.image.startsWith('http')}
+                  unoptimized
                 />
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-xs text-muted font-mono uppercase tracking-widest mb-1">{product.category.toUpperCase()}</p>
                 <h4 className="text-lg font-bebas tracking-wider mb-2 truncate">{product.name}</h4>
                 <p className="text-gold font-mono text-xl font-bold mb-3">{formatPrice(product.price)}</p>
-                <a
-                  href={product.amazonUrl}
-                  target="_blank"
-                  rel="nofollow sponsored"
-                  aria-label={`Commander ${product.name} sur Amazon`}
-                  className="inline-flex items-center gap-1.5 bg-orange text-white text-xs font-bold px-4 py-2 rounded-sm hover:bg-[#FF5712] transition-colors shimmer-btn"
-                >
-                  <HardDrive size={12} />
-                  VOIR SUR AMAZON
-                </a>
+                <div className="flex flex-wrap gap-2">
+                  <a
+                    href={product.amazonUrl}
+                    target="_blank"
+                    rel="nofollow sponsored"
+                    aria-label={`Commander ${product.name} sur Amazon`}
+                    className="inline-flex items-center gap-1.5 bg-orange text-white text-xs font-bold px-4 py-2 rounded-sm hover:bg-[#FF5712] transition-colors shimmer-btn"
+                  >
+                    <HardDrive size={12} />
+                    COMMANDER
+                  </a>
+                  <Link
+                    href={`/produits/${product.id}`}
+                    className="inline-flex items-center gap-1.5 border border-cyan/30 text-cyan text-xs font-bold px-4 py-2 rounded-sm hover:bg-cyan/10 hover:border-cyan transition-colors"
+                  >
+                    <FileText size={12} />
+                    VOIR LA FICHE →
+                  </Link>
+                </div>
               </div>
             </motion.div>
           ))}

@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import StickyBar from "@/components/layout/StickyBar";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
+import PromoBar from "@/components/ui/PromoBar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -60,6 +61,7 @@ export default function RootLayout({
         )}
       >
         <div className="noise-overlay" />
+        <PromoBar />
         <StickyBar />
         <Navigation />
         <main className="flex-grow">{children}</main>

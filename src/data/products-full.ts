@@ -59,6 +59,7 @@ export interface ProductFull {
   budgetTier: (500 | 1000 | 2000)[];
   trustSignals: string[];
   image: string;
+  images?: string[];
   bullets: BulletPoint[];
   verdict: string;
   scores: ScoreSet;
@@ -75,6 +76,7 @@ export interface ProductFull {
   };
   complementaryProductIds: string[];
   faq: FAQItem[];
+  videos?: { videoId: string; title: string; channel: string; duration: string }[];
 }
 
 export const PRODUCTS_FULL: ProductFull[] = [
@@ -95,6 +97,11 @@ export const PRODUCTS_FULL: ProductFull[] = [
     budgetTier: [500, 1000, 2000],
     trustSignals: ['Livraison le jour de la sortie', 'Prix Amazon garanti (remboursé si baisse)', 'Retours gratuits sous 30 jours'],
     image: '/images/gta6_ps5.png',
+    images: [
+      '/images/gta6_ps5.png',
+      'https://i.ytimg.com/vi/QdBZY2fkU-0/maxresdefault.jpg',
+      'https://i.ytimg.com/vi/g7jtqwUi9U0/maxresdefault.jpg',
+    ],
     bullets: [
       { feature: 'Vice City Nouvelle Génération', outcome: 'explorez un monde ouvert plus grand et immersif que jamais.' },
       { feature: 'Pack Vintage Vice City inclus', outcome: 'obtenez des tenues et des skins de véhicules rétro exclusifs.' },
@@ -154,6 +161,10 @@ export const PRODUCTS_FULL: ProductFull[] = [
       { question: 'Le Pack Vintage Vice City est-il inclus ?', answer: 'Oui, le Pack Vintage Vice City est inclus gratuitement avec toute précommande. Il contient des tenues rétro et des skins de véhicules exclusifs.' },
       { question: 'GTA 6 est-il jouable en multijoueur ?', answer: 'Oui, GTA 6 propose un mode Online massif inspiré de GTA Online, accessible dès le lancement du jeu. Un abonnement PlayStation Plus est nécessaire pour le multijoueur.' },
       { question: 'Peut-on jouer à GTA 6 sur PS4 ?', answer: 'Non, GTA 6 est exclusif à la PS5 (et PS5 Pro). Il n\'est pas compatible avec la PS4.' }
+    ],
+    videos: [
+      { videoId: 'QdBZY2fkU-0', title: 'Grand Theft Auto VI — Trailer 1 Officiel', channel: 'Rockstar Games', duration: '1:31' },
+      { videoId: 'g7jtqwUi9U0', title: 'Grand Theft Auto VI — Trailer Officiel', channel: 'Rockstar Games', duration: '1:31' }
     ]
   },
 
@@ -174,6 +185,11 @@ export const PRODUCTS_FULL: ProductFull[] = [
     budgetTier: [500, 1000, 2000],
     trustSignals: ['Livraison le jour de la sortie', 'Prix Amazon garanti (remboursé si baisse)', 'Smart Delivery inclus'],
     image: '/images/gta6_xbox.png',
+    images: [
+      '/images/gta6_xbox.png',
+      'https://i.ytimg.com/vi/QdBZY2fkU-0/maxresdefault.jpg',
+      'https://i.ytimg.com/vi/g7jtqwUi9U0/maxresdefault.jpg',
+    ],
     bullets: [
       { feature: 'Smart Delivery Xbox', outcome: 'une seule copie optimisée automatiquement pour votre console.' },
       { feature: 'Ray Tracing complet', outcome: 'reflets réalistes sur les océans et les carrosseries de Vice City.' },
@@ -232,6 +248,10 @@ export const PRODUCTS_FULL: ProductFull[] = [
       { question: 'GTA 6 supporte-t-il le Dolby Atmos ?', answer: 'Oui, GTA 6 sur Xbox supporte nativement le Dolby Atmos pour une spatialisation sonore premium.' },
       { question: 'Puis-je précommander GTA 6 Xbox en version digitale ?', answer: 'Oui, la précommande est disponible en version physique et digitale sur le Microsoft Store et Amazon.' },
       { question: 'GTA Online est-il inclus avec GTA 6 Xbox ?', answer: 'Oui, le mode GTA Online est inclus et accessible dès le jour de la sortie. Un abonnement Xbox Live Gold / Game Pass Core est nécessaire.' }
+    ],
+    videos: [
+      { videoId: 'QdBZY2fkU-0', title: 'Grand Theft Auto VI — Trailer 1 Officiel', channel: 'Rockstar Games', duration: '1:31' },
+      { videoId: 'g7jtqwUi9U0', title: 'Grand Theft Auto VI — Trailer Officiel (4K)', channel: 'Rockstar Games', duration: '1:31' }
     ]
   },
 
@@ -252,6 +272,13 @@ export const PRODUCTS_FULL: ProductFull[] = [
     budgetTier: [2000],
     trustSignals: ['En stock — livraison rapide', 'Garantie Sony 2 ans', 'Retours gratuits 30 jours'],
     image: '/images/ps5_pro.png',
+    images: [
+      'https://c1.neweggimages.com/productimage/nb640/68-110-346-01.jpg',
+      'https://c1.neweggimages.com/productimage/nb640/68-110-346-04.jpg',
+      'https://c1.neweggimages.com/productimage/nb640/68-110-346-05.jpg',
+      'https://c1.neweggimages.com/productimage/nb640/68-110-346-11.png',
+      'https://c1.neweggimages.com/productimage/nb640/68-110-346-08.png',
+    ],
     bullets: [
       { feature: 'GPU amélioré 67% plus puissant', outcome: 'GTA 6 en 4K 60fps constants sans chute de framerate.' },
       { feature: 'Technologie PSSR (upscaling IA)', outcome: 'un rendu visuel net comme du 4K natif, même en mode performance.' },
@@ -310,6 +337,10 @@ export const PRODUCTS_FULL: ProductFull[] = [
       { question: 'Mes jeux PS5 sont-ils compatibles avec la PS5 Pro ?', answer: 'Oui, 100% de rétrocompatibilité. Vos jeux PS5 et PS4 fonctionnent sur la PS5 Pro, avec des performances améliorées pour de nombreux titres.' },
       { question: 'La PS5 Pro a-t-elle un SSD plus grand ?', answer: 'Oui, 2 To au lieu de 1 To (PS5 Slim). Cela vous laisse environ 1 750 Go utilisables après système.' },
       { question: 'Est-ce que ça vaut le coup de passer de la PS5 à la PS5 Pro ?', answer: 'Si vous jouez sur un écran 4K et que les performances maximales comptent pour vous, oui. Sinon, la PS5 standard reste une excellente console.' }
+    ],
+    videos: [
+      { videoId: 'MzdV8lR82N4', title: 'PlayStation 5 Pro — Le Verdict Digital Foundry', channel: 'Digital Foundry', duration: '38:14' },
+      { videoId: 'QdBZY2fkU-0', title: 'GTA 6 Trailer — Voyez pourquoi la PS5 Pro est indispensable', channel: 'Rockstar Games', duration: '1:31' }
     ]
   },
 
@@ -330,6 +361,13 @@ export const PRODUCTS_FULL: ProductFull[] = [
     budgetTier: [500],
     trustSignals: ['En stock — expédition sous 24h', 'Garantie Sony 2 ans', 'Retours gratuits 30 jours'],
     image: '/images/ps5_digital_slim.png',
+    images: [
+      'https://c1.neweggimages.com/productimage/nb640/68-110-295-13.jpg',
+      'https://c1.neweggimages.com/productimage/nb640/68-110-295-14.jpg',
+      'https://c1.neweggimages.com/productimage/nb640/68-110-295-15.jpg',
+      'https://c1.neweggimages.com/productimage/nb640/68-110-295-03.jpg',
+      'https://c1.neweggimages.com/productimage/nb640/68-110-295-04.jpg',
+    ],
     bullets: [
       { feature: 'Design Slim compact', outcome: 'se glisse dans n\'importe quel meuble TV sans encombrer.' },
       { feature: 'SSD 1 To', outcome: 'GTA 6 + 4 autres jeux installés sans stress.' },
@@ -408,6 +446,13 @@ export const PRODUCTS_FULL: ProductFull[] = [
     budgetTier: [1000, 2000],
     trustSignals: ['Produit officiel Sony', 'Livraison gratuite', 'Garantie constructeur 1 an'],
     image: '/images/dualsense_edge.png',
+    images: [
+      'https://c1.neweggimages.com/productimage/nb640/79-261-991-04.png',
+      'https://c1.neweggimages.com/productimage/nb640/79-261-991-05.png',
+      'https://c1.neweggimages.com/productimage/nb640/79-261-991-06.png',
+      'https://c1.neweggimages.com/productimage/nb640/79-261-991-07.png',
+      'https://c1.neweggimages.com/productimage/nb640/79-261-991-08.png',
+    ],
     bullets: [
       { feature: 'Sticks interchangeables', outcome: 'remplacez un stick usé en 30 secondes sans racheter la manette.' },
       { feature: 'Palettes arrière personnalisables', outcome: 'assignez accélérer/freiner sans lâcher les sticks en course-poursuite.' },
@@ -466,6 +511,10 @@ export const PRODUCTS_FULL: ProductFull[] = [
       { question: 'Le DualSense Edge vaut-il vraiment 240€ ?', answer: 'Pour un joueur compétitif ou un gros joueur, oui — les sticks remplaçables seuls rentabilisent l\'investissement sur la durée. Pour un joueur casual, le DualSense standard à 70€ suffit.' },
       { question: 'Quelle est l\'autonomie du DualSense Edge ?', answer: 'Environ 6 à 8 heures, soit légèrement moins que le DualSense standard. Un câble USB-C tressé de 2,8m est inclus pour jouer en filaire.' },
       { question: 'Le DualSense Edge fonctionne-t-il sur PC ?', answer: 'Oui, il se connecte en Bluetooth ou en USB-C sur PC. Les fonctions de base sont supportées nativement par Steam.' }
+    ],
+    videos: [
+      { videoId: 'T-QMVczY5qI', title: 'PS5 DualSense Edge — Test complet', channel: 'MrMobile', duration: '12:23' },
+      { videoId: 'Es5zMgX4g2I', title: 'DualSense Edge — Revue approfondie', channel: 'GamersNexus', duration: '18:42' }
     ]
   },
 
@@ -486,6 +535,13 @@ export const PRODUCTS_FULL: ProductFull[] = [
     budgetTier: [500, 1000],
     trustSignals: ['Produit officiel Sony', 'Livraison rapide', 'Garantie constructeur 1 an'],
     image: '/images/dualsense.png',
+    images: [
+      'https://c1.neweggimages.com/productimage/nb640/79-261-873-04.jpg',
+      'https://c1.neweggimages.com/productimage/nb640/79-261-873-V01.jpg',
+      'https://c1.neweggimages.com/productimage/nb640/79-261-873-V02.jpg',
+      'https://c1.neweggimages.com/productimage/nb640/79-261-873-V03.jpg',
+      'https://c1.neweggimages.com/productimage/nb640/79-261-873-V05.jpg',
+    ],
     bullets: [
       { feature: 'Gâchettes adaptatives', outcome: 'ressentez la résistance de la pédale de frein ou la gâchette d\'une arme.' },
       { feature: 'Retour haptique précis', outcome: 'ressentez la texture de la route, de la pluie et des explosions.' },
@@ -564,6 +620,12 @@ export const PRODUCTS_FULL: ProductFull[] = [
     budgetTier: [500],
     trustSignals: ['Livraison rapide', 'Garantie de 2 ans', 'Meilleur rapport qualité/prix casque'],
     image: '/images/steelseries_arctis_nova_1.png',
+    images: [
+      'https://c1.neweggimages.com/productimage/nb640/3EE-0005-00015-01.jpg',
+      'https://c1.neweggimages.com/productimage/nb640/3EE-0005-00015-02.jpg',
+      'https://c1.neweggimages.com/productimage/nb640/3EE-0005-00015-03.jpg',
+      'https://c1.neweggimages.com/productimage/nb640/3EE-0005-00015-04.jpg',
+    ],
     bullets: [
       { feature: 'Système acoustique Nova', outcome: 'un son détaillé pour entendre chaque pas et chaque voiture approcher.' },
       { feature: 'Ultra-léger (236g)', outcome: 'confort exceptionnel pour 6h de GTA 6 sans fatigue.' },
@@ -642,6 +704,13 @@ export const PRODUCTS_FULL: ProductFull[] = [
     budgetTier: [2000],
     trustSignals: ['Produit premium', 'Livraison gratuite', 'Garantie constructeur 2 ans'],
     image: '/images/logitech_astro_a50.png',
+    images: [
+      'https://c1.neweggimages.com/productimage/nb640/79-778-022-01.jpg',
+      'https://c1.neweggimages.com/productimage/nb640/79-778-022-02.jpg',
+      'https://c1.neweggimages.com/productimage/nb640/79-778-022-03.jpg',
+      'https://c1.neweggimages.com/productimage/nb640/79-778-022-04.jpg',
+      'https://c1.neweggimages.com/productimage/nb640/79-778-022-05.jpg',
+    ],
     bullets: [
       { feature: 'Son Astro Audio V2', outcome: 'une clarté sonore exceptionnelle et des basses profondes sans distorsion.' },
       { feature: 'Sans fil 2,4 GHz zéro latence', outcome: 'aucun décalage audible pendant les phases de jeu intenses.' },
@@ -720,6 +789,12 @@ export const PRODUCTS_FULL: ProductFull[] = [
     budgetTier: [1000],
     trustSignals: ['Livraison gratuite', 'Garantie Corsair 2 ans', 'Compatible PS5 Tempest 3D'],
     image: '/images/corsair_hs80_rgb.png',
+    images: [
+      'https://c1.neweggimages.com/productimage/nb640/26-816-177-S01.jpg',
+      'https://c1.neweggimages.com/productimage/nb640/26-816-177-01.jpg',
+      'https://c1.neweggimages.com/productimage/nb640/26-816-177-02.jpg',
+      'https://c1.neweggimages.com/productimage/nb640/26-816-177-03.jpg',
+    ],
     bullets: [
       { feature: 'Audio 3D Tempest natif PS5', outcome: 'entends les sirènes venir de derrière toi dans Vice City.' },
       { feature: 'Sans fil 2.4 GHz', outcome: 'liberté totale sans latence perceptible.' },
@@ -778,6 +853,10 @@ export const PRODUCTS_FULL: ProductFull[] = [
       { question: 'Quelle est l\'autonomie réelle ?', answer: 'Environ 20 heures avec le RGB désactivé, et ~15 heures avec le RGB activé.' },
       { question: 'Le micro est-il bon pour le chat vocal ?', answer: 'Oui, le micro omnidirectionnel flip-to-mute offre une captation claire adaptée au chat vocal gaming.' },
       { question: 'Peut-on utiliser le HS80 en filaire ?', answer: 'Non, le HS80 est exclusivement sans fil via son dongle USB 2.4 GHz.' }
+    ],
+    videos: [
+      { videoId: 'zJx0D0_wKeY', title: 'Corsair HS80 RGB Wireless — Test approfondi', channel: 'HardwareCanucks', duration: '14:55' },
+      { videoId: 'WqbSYidmwgw', title: 'Corsair HS80 RGB Wireless — Meilleur casque ?', channel: 'Z Reviews', duration: '22:10' }
     ]
   },
 
@@ -798,6 +877,12 @@ export const PRODUCTS_FULL: ProductFull[] = [
     budgetTier: [1000, 2000],
     trustSignals: ['Produit officiel Sony', 'Livraison gratuite', 'Retours 30 jours'],
     image: '/images/ps_pulse_explore.png',
+    images: [
+      'https://c1.neweggimages.com/productimage/nb640/A24GD2401200E5ZH8EB.jpg',
+      'https://c1.neweggimages.com/productimage/nb640/A24GD2401200E5ZFY9B.jpg',
+      'https://c1.neweggimages.com/productimage/nb640/A24GD2401200E5ZJU69.jpg',
+      'https://c1.neweggimages.com/productimage/nb640/A24GD2401200E5ZJ123.jpg',
+    ],
     bullets: [
       { feature: 'Audio lossless PlayStation Link', outcome: 'qualité sonore sans compression, aucune perte de détail.' },
       { feature: 'Format écouteurs TWS ultra-léger', outcome: 'oubliez que vous les portez pendant des heures de jeu.' },
@@ -953,7 +1038,7 @@ export const PRODUCTS_FULL: ProductFull[] = [
     sellingPoint: 'QLED, 144Hz, VRR. La TV gaming parfaite à prix honnête.',
     budgetTier: [1000, 2000],
     trustSignals: ['Livraison gratuite', 'Garantie 2 ans', 'Best-seller TV gaming'],
-    image: 'https://m.media-amazon.com/images/I/81+2n6T88TL._AC_SL1500_.jpg',
+    image: '/images/tcl_65q6c.svg',
     bullets: [
       { feature: 'Dalle QLED Quantum Dot', outcome: 'des couleurs éclatantes et un volume colorimétrique supérieur au LED.' },
       { feature: '144Hz + VRR (FreeSync)', outcome: 'fluidité maximale sans tearing sur PS5 et PC.' },
@@ -1031,7 +1116,7 @@ export const PRODUCTS_FULL: ProductFull[] = [
     sellingPoint: 'GTA 6 en ultrawide cinématique. L\'immersion PC ultime à 300€.',
     budgetTier: [500, 1000],
     trustSignals: ['Livraison rapide', 'Garantie 2 ans', 'Best-seller moniteur ultrawide'],
-    image: 'https://m.media-amazon.com/images/I/71R2cEoyMmL._AC_SL1500_.jpg',
+    image: '/images/gawfolk_34_ultrawide.jpg',
     bullets: [
       { feature: 'Format 21:9 ultrawide', outcome: 'un champ de vision élargi pour voir Vice City comme jamais.' },
       { feature: 'Dalle incurvée 1500R', outcome: 'immersion enveloppante pour les courses-poursuites.' },
@@ -1109,7 +1194,7 @@ export const PRODUCTS_FULL: ProductFull[] = [
     sellingPoint: '150GB pour GTA 6 chargés en 4 secondes. 2 To. Le MEILLEUR choix SSD.',
     budgetTier: [1000, 2000],
     trustSignals: ['Meilleur prix SSD 2To', 'Installation en 5 minutes', 'Garantie 5 ans'],
-    image: 'https://m.media-amazon.com/images/I/71Xm+Q67S9L._AC_SL1500_.jpg',
+    image: '/images/lexar_nm790_heatsink.png',
     bullets: [
       { feature: '7 400 Mo/s en lecture', outcome: 'les temps de chargement de GTA 6 sont réduits au strict minimum.' },
       { feature: '2 To de capacité', outcome: 'GTA 6 (150Go) + une vingtaine d\'autres jeux AAA, sans rien supprimer.' },
@@ -1169,6 +1254,10 @@ export const PRODUCTS_FULL: ProductFull[] = [
       { question: 'Quelle est la vraie capacité utilisable ?', answer: 'Après formatage PS5, environ 1 750 Go sont disponibles (formatage système standard).' },
       { question: 'GTA 6 est-il vraiment plus rapide avec ce SSD ?', answer: 'Le SSD d\'extension offre des vitesses similaires au SSD interne de la PS5 (5.5 Gbps). Les temps de chargement seront identiques.' },
       { question: 'Ce SSD fonctionne-t-il aussi sur PC ?', answer: 'Oui, c\'est un SSD M.2 NVMe Gen4 standard compatible avec tous les PC équipés d\'un slot M.2.' }
+    ],
+    videos: [
+      { videoId: 'cs-HBof2KnU', title: 'Lexar NM790 — Test & Benchmarks 7400 Mo/s', channel: 'Hardware Reviews', duration: '10:45' },
+      { videoId: 'pi62VqVicGk', title: 'Les SSD Lexar sont-ils bons ? NM790 en test', channel: 'LTT Labs', duration: '15:30' }
     ]
   },
 
@@ -1188,7 +1277,7 @@ export const PRODUCTS_FULL: ProductFull[] = [
     sellingPoint: 'Alternative solide au Lexar. Fiable, rapide et 10€ moins cher.',
     budgetTier: [1000, 2000],
     trustSignals: ['Marque Crucial (Micron)', 'Garantie 5 ans', 'Installation facile'],
-    image: 'https://m.media-amazon.com/images/I/61Nl8fXUofL._AC_SL1500_.jpg',
+    image: '/images/crucial_p310.jpg',
     bullets: [
       { feature: '7 000 Mo/s en lecture', outcome: 'vitesse Gen4 qui dépasse les exigences PS5.' },
       { feature: '2 To de capacité', outcome: 'GTA 6 + tous vos jeux sans jamais manquer de place.' },
@@ -1266,7 +1355,7 @@ export const PRODUCTS_FULL: ProductFull[] = [
     sellingPoint: 'Budget serré ? 1 To suffit pour GTA 6 + 3-4 autres jeux. 90€.',
     budgetTier: [500],
     trustSignals: ['Meilleur prix SSD 1To', 'Installation 5 min', 'Garantie 5 ans'],
-    image: 'https://m.media-amazon.com/images/I/71Xm+Q67S9L._AC_SL1500_.jpg',
+    image: '/images/lexar_nm790_1tb.png',
     bullets: [
       { feature: '7 400 Mo/s en lecture', outcome: 'vitesses identiques à la version 2 To.' },
       { feature: '1 To de capacité', outcome: 'GTA 6 (150Go) + 5-6 autres jeux AAA.' },
@@ -1344,7 +1433,7 @@ export const PRODUCTS_FULL: ProductFull[] = [
     sellingPoint: 'Lombaires réglables. 4h de GTA 6 sans douleur dans le dos.',
     budgetTier: [1000, 2000],
     trustSignals: ['Livraison gratuite', 'Garantie 3 ans', 'Montage facile (30 min)'],
-    image: 'https://m.media-amazon.com/images/I/61Ssh739SML._AC_SL1500_.jpg',
+    image: '/images/autofull_m6_pro.jpg',
     bullets: [
       { feature: 'Support lombaire réglable', outcome: 'ajustez la pression lombaire pour zéro douleur de dos.' },
       { feature: 'Mousse haute densité', outcome: 'l\'assise reste ferme et confortable même après des mois d\'utilisation.' },
@@ -1422,7 +1511,13 @@ export const PRODUCTS_FULL: ProductFull[] = [
     sellingPoint: 'Le design Razer + le confort Iskur. Le meilleur look du marché.',
     budgetTier: [2000],
     trustSignals: ['Produit officiel Razer', 'Garantie 3 ans', 'Design premium'],
-    image: 'https://m.media-amazon.com/images/I/61Nl8fXUofL._AC_SL1500_.jpg',
+    image: '/images/razer_iskur_v2.webp',
+    images: [
+      'https://assets2.razerzone.com/images/pnx.assets/75717e683ff74a8442926bc55c2b16a7/razer-iskur-v2-x-hero-desktop-v2.webp',
+      'https://assets2.razerzone.com/images/pnx.assets/99cc6c2712cfc8d334304bcc331d976b/razer-iskur-v2-x-500x500.webp',
+      'https://assets2.razerzone.com/images/pnx.assets/ada30f707aa465f947d799c071451936/razer-iskur-v2-x-reduced-edges-desktop.webp',
+      'https://assets2.razerzone.com/images/pnx.assets/3336f77936e893365e18d10bcc2d52ce/razer-iskur-v2-x-foam-cushions-desktop.webp',
+    ],
     bullets: [
       { feature: 'Support lombaire adaptatif intégré', outcome: 's\'ajuste automatiquement à la courbure de votre dos.' },
       { feature: 'Mousse haute densité moulée', outcome: 'assise ferme et confortable qui ne s\'affaisse pas.' },
@@ -1500,7 +1595,7 @@ export const PRODUCTS_FULL: ProductFull[] = [
     sellingPoint: 'LED RGB, surface XL, design gaming. Le trône de Vice City.',
     budgetTier: [1000, 2000],
     trustSignals: ['Livraison gratuite', 'Montage facile', 'Garantie 2 ans'],
-    image: 'https://m.media-amazon.com/images/I/71z780X0cDL._AC_SL1500_.jpg',
+    image: '/images/berserker_rgb_desk.png',
     bullets: [
       { feature: 'Bandeau LED RGB intégré', outcome: 'ambiance Vice City dans votre chambre avec des couleurs personnalisables.' },
       { feature: 'Surface XL 140×60 cm', outcome: 'assez de place pour un écran ultrawide, clavier, souris et DualSense.' },
@@ -1578,7 +1673,7 @@ export const PRODUCTS_FULL: ProductFull[] = [
     sellingPoint: 'Fonctionnel, grand, abordable. Le bureau gaming sans chichi.',
     budgetTier: [500, 1000],
     trustSignals: ['Livraison gratuite', 'Montage rapide (30 min)', 'Best-seller bureau gaming'],
-    image: 'https://m.media-amazon.com/images/I/61S9A+JmS+L._AC_SL1500_.jpg',
+    image: '/images/trust_gxt710.png',
     bullets: [
       { feature: 'Surface XL 120×60 cm', outcome: 'assez de place pour un écran, clavier et manette côte à côte.' },
       { feature: 'Structure en acier', outcome: 'stabilité à toute épreuve, zéro vibration.' },

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Headphones, Music, Star } from "lucide-react";
+import { Headphones, Music, Star, FileText } from "lucide-react";
 import Link from "next/link";
 import { PRODUCTS_FULL } from "@/data/products-full";
 import Image from "next/image";
@@ -88,7 +88,7 @@ export default function AudioGuide() {
                   width={120}
                   height={128}
                   className="object-contain max-h-full"
-                  unoptimized={product.image.startsWith('http')}
+                  unoptimized
                 />
               </div>
               <div className="flex items-center gap-2 mb-2">
@@ -97,18 +97,27 @@ export default function AudioGuide() {
               </div>
               <h4 className="text-lg font-bebas tracking-wider mb-2">{product.name}</h4>
               <p className="text-xs text-muted font-inter leading-relaxed mb-4 flex-1">{product.sellingPoint}</p>
-              <div className="flex items-center justify-between mt-auto">
-                <span className="text-gold font-mono text-xl font-bold">{formatPrice(product.price)}</span>
-                <a
-                  href={product.amazonUrl}
-                  target="_blank"
-                  rel="nofollow sponsored"
-                  aria-label={`Commander ${product.name} sur Amazon`}
-                  className="inline-flex items-center gap-1.5 bg-orange text-white text-xs font-bold px-3 py-2 rounded-sm hover:bg-[#FF5712] transition-colors shimmer-btn"
+              <div className="mt-auto space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-gold font-mono text-xl font-bold">{formatPrice(product.price)}</span>
+                  <a
+                    href={product.amazonUrl}
+                    target="_blank"
+                    rel="nofollow sponsored"
+                    aria-label={`Commander ${product.name} sur Amazon`}
+                    className="inline-flex items-center gap-1.5 bg-orange text-white text-xs font-bold px-3 py-2 rounded-sm hover:bg-[#FF5712] transition-colors shimmer-btn"
+                  >
+                    <Headphones size={11} />
+                    AMAZON
+                  </a>
+                </div>
+                <Link
+                  href={`/produits/${product.id}`}
+                  className="w-full inline-flex items-center justify-center gap-1.5 border border-cyan/30 text-cyan text-xs font-bold px-3 py-2 rounded-sm hover:bg-cyan/10 hover:border-cyan transition-colors"
                 >
-                  <Headphones size={11} />
-                  AMAZON
-                </a>
+                  <FileText size={11} />
+                  VOIR LA FICHE COMPLÈTE →
+                </Link>
               </div>
             </motion.div>
           ))}

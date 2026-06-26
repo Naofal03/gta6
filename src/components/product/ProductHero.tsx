@@ -8,6 +8,7 @@ import StarRating from "../ui/StarRating";
 import Badge from "../ui/Badge";
 import { ShoppingCart } from "lucide-react";
 import { formatPrice } from "@/lib/utils";
+import ProductUrgency from "./ProductUrgency";
 
 interface ProductHeroProps {
   product: ProductFull;
@@ -16,13 +17,10 @@ interface ProductHeroProps {
 export default function ProductHero({ product }: ProductHeroProps) {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
-  // Generate 4 mock image angles using the primary image and different styling/zooms for secondary angles
-  const images = [
-    product.image,
-    product.image, // Angle 2 (Zoomed)
-    product.image, // Angle 3 (Detail)
-    product.image  // Angle 4 (Scale)
-  ];
+  const images = product.images && product.images.length > 1
+    ? product.images.slice(0, 5)
+    : [product.image];
+  const showGallery = images.length > 1;
 
   const handleReviewScroll = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -91,7 +89,7 @@ export default function ProductHero({ product }: ProductHeroProps) {
             {product.badge && (
               <Badge type={product.badge} className="absolute top-4 left-4 z-10" />
             )}
-            <div className="w-full h-full relative transition-transform duration-500 group-hover:scale-110 overflow-hidden flex items-center justify-center">
+            <div className="w-full h-full relative flex items-center justify-center">
               <Image
                 src={images[activeImageIndex]}
                 alt={`${product.name} - Vue ${activeImageIndex + 1}`}
@@ -99,42 +97,35 @@ export default function ProductHero({ product }: ProductHeroProps) {
                 height={500}
                 priority
                 unoptimized
-                className={`max-h-full max-w-full object-contain ${
-                  activeImageIndex === 1 ? "scale-125 origin-center" : 
-                  activeImageIndex === 2 ? "scale-150 origin-bottom" : 
-                  activeImageIndex === 3 ? "scale-110 rotate-3" : ""
-                }`}
+                className="max-h-full max-w-full object-contain transition-opacity duration-300"
               />
             </div>
           </div>
 
-          {/* Miniature List */}
-          <div className="grid grid-cols-4 gap-4">
-            {images.map((img, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveImageIndex(index)}
-                className={`aspect-square rounded-sm border p-2 glass bg-surface transition-all duration-300 overflow-hidden flex items-center justify-center ${
-                  activeImageIndex === index ? "border-cyan" : "border-border hover:border-muted"
-                }`}
-              >
-                <div className="w-full h-full relative flex items-center justify-center">
+          {/* Miniature List — only shown when there are multiple distinct images */}
+          {showGallery && (
+            <div className={`grid gap-3 ${images.length <= 4 ? 'grid-cols-4' : 'grid-cols-5'}`}>
+              {images.map((img, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveImageIndex(index)}
+                  className={`aspect-square rounded-sm border p-1.5 glass bg-surface transition-all duration-300 overflow-hidden flex items-center justify-center ${
+                    activeImageIndex === index ? "border-cyan shadow-[0_0_8px_rgba(0,255,204,0.3)]" : "border-border hover:border-muted"
+                  }`}
+                  title={`Vue ${index + 1}`}
+                >
                   <Image
                     src={img}
-                    alt={`${product.name} miniature ${index + 1}`}
+                    alt={`${product.name} vue ${index + 1}`}
                     width={100}
                     height={100}
                     unoptimized
-                    className={`max-h-full max-w-full object-contain ${
-                      index === 1 ? "scale-125" : 
-                      index === 2 ? "scale-150" : 
-                      index === 3 ? "scale-110 rotate-3" : ""
-                    }`}
+                    className="max-h-full max-w-full object-contain"
                   />
-                </div>
-              </button>
-            ))}
-          </div>
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Right Column: Decision Block */}
@@ -207,6 +198,9 @@ export default function ProductHero({ product }: ProductHeroProps) {
               </div>
             ))}
           </div>
+
+          {/* Live urgency signals */}
+          <ProductUrgency price={product.price} productName={product.name} />
 
           {/* Call to Actions */}
           <div className="flex flex-col sm:flex-row gap-4 mt-2">

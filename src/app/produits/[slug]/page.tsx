@@ -13,6 +13,7 @@ import CrossSell from "@/components/product/CrossSell";
 import ProductFAQ from "@/components/product/ProductFAQ";
 import ProductCTA from "@/components/product/ProductCTA";
 import StickyProductBar from "@/components/product/StickyProductBar";
+import VideoReview from "@/components/product/VideoReview";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -128,6 +129,11 @@ export default async function ProductPage({ params }: PageProps) {
 
       {/* Pricing / value assessment */}
       <ValueAnalysis product={product} />
+
+      {/* Video reviews */}
+      {product.videos && product.videos.length > 0 && (
+        <VideoReview videos={product.videos} productName={product.name} amazonUrl={product.amazonUrl} />
+      )}
 
       {/* Amazon ratings & buyer reviews */}
       <ReviewsSection product={product} />

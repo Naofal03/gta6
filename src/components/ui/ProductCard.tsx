@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { ProductFull } from "@/data/products-full";
 import { formatPrice } from "@/lib/utils";
 import Button from "../ui/Button";
 import StarRating from "./StarRating";
 import Badge from "./Badge";
-import { ShoppingCart, CheckCircle2 } from "lucide-react";
+import { ShoppingCart, CheckCircle2, FileText } from "lucide-react";
 
 interface ProductCardProps {
   product: ProductFull;
@@ -44,7 +45,9 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
 
           <div className="flex-grow">
-            <h3 className="text-xl mb-2 line-clamp-2">{product.name}</h3>
+            <Link href={`/produits/${product.id}`} onClick={(e) => e.stopPropagation()}>
+              <h3 className="text-xl mb-2 line-clamp-2 hover:text-cyan transition-colors">{product.name}</h3>
+            </Link>
             <div className="flex items-center gap-2 mb-4">
               <StarRating rating={product.rating} />
               <span className="text-[10px] text-muted">({product.reviewCount.toLocaleString()})</span>
@@ -102,7 +105,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             ))}
           </div>
 
-          <a 
+          <a
             href={product.amazonUrl}
             target="_blank"
             rel="nofollow sponsored"
@@ -110,11 +113,20 @@ export default function ProductCard({ product }: ProductCardProps) {
             className="w-full inline-flex items-center justify-center rounded-sm px-8 py-3.5 text-lg font-bebas bg-orange text-white hover:bg-[#FF5712] shadow-[0_0_20px_rgba(255,69,0,0.4)] transition-all duration-300 shimmer-btn"
           >
             <ShoppingCart size={18} className="mr-2" />
-            VOIR SUR AMAZON
+            COMMANDER SUR AMAZON
           </a>
-          
-          <p className="mt-4 text-[9px] text-muted/60 uppercase tracking-widest font-mono">
-            Expédié par Amazon
+
+          <Link
+            href={`/produits/${product.id}`}
+            onClick={(e) => e.stopPropagation()}
+            className="w-full mt-3 inline-flex items-center justify-center gap-2 rounded-sm px-8 py-3 text-sm font-bebas border border-cyan/30 text-cyan hover:bg-cyan/10 hover:border-cyan transition-all duration-300"
+          >
+            <FileText size={14} />
+            VOIR LA FICHE COMPLÈTE →
+          </Link>
+
+          <p className="mt-3 text-[9px] text-muted/60 uppercase tracking-widest font-mono">
+            Test · Avis · Specs complètes
           </p>
         </div>
       </motion.div>
