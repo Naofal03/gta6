@@ -47,6 +47,9 @@ export const metadata: Metadata = {
   verification: {
     google: process.env.NEXT_PUBLIC_GSC_VERIFICATION,
   },
+  other: {
+    "p:domain_verify": "3081a7bb7bd65d7dd306dab107504df1",
+  },
 };
 
 export default function RootLayout({
