@@ -288,22 +288,25 @@ function GuideProductCard({ id }: { id: string }) {
           
           <div className="flex items-center gap-4 flex-wrap mt-4 justify-between border-t border-border/30 pt-4">
             <div className="flex flex-col">
-              <span className="text-[10px] text-muted font-mono uppercase tracking-widest">Prix conseillé</span>
+              <span className="text-[10px] text-muted font-mono uppercase tracking-widest flex items-center gap-1">
+                Prix vérifié Amazon <span className="inline-block w-1.5 h-1.5 rounded-full bg-trust animate-pulse" />
+              </span>
               <span className="text-gold font-mono text-2xl font-bold">{formatPrice(product.price)}</span>
             </div>
             <a
               href={product.amazonUrl}
               target="_blank"
               rel="nofollow sponsored"
-              aria-label={`Commander ${product.name} sur Amazon`}
-              className="inline-flex items-center gap-2 bg-orange text-white font-bebas text-lg px-6 py-3 rounded-sm hover:bg-[#FF5712] shadow-[0_0_20px_rgba(255,69,0,0.4)] transition-all duration-300 shimmer-btn"
+              aria-label={`Vérifier le prix de ${product.name} sur Amazon`}
+              className="inline-flex items-center gap-2 bg-orange text-white font-bebas text-lg px-6 py-3 rounded-sm hover:bg-[#FF5712] shadow-[0_0_20px_rgba(255,69,0,0.4)] transition-all duration-300 shimmer-btn uppercase tracking-wide"
             >
               <Icon size={16} />
-              ACHETER SUR AMAZON →
+              VÉRIFIER LE PRIX EN DIRECT →
             </a>
           </div>
-          <p className="text-[9px] text-muted/50 font-mono mt-3">
-            ✓ Prix Amazon garanti · ✓ Livraison rapide · ✓ Éligible Prime
+          <p className="text-[9px] text-muted/60 font-mono mt-3 flex items-center justify-between flex-wrap gap-2">
+            <span>✓ Expédié par Amazon · ✓ Retours gratuits · ✓ Éligible Prime</span>
+            <span className="text-cyan/80">Prix et stock mis à jour le 29 Juillet 2026</span>
           </p>
         </div>
       </div>
@@ -653,7 +656,10 @@ function MarkdownTextSection({ text }: { text: string }) {
   return <>{elements}</>;
 }
 
-const COMPONENT_REGEX = /(\[Product\s+[^\]]+\]|\[ProsCons\s+[^\]]+\]|\[CTA\s+[^\]]+\]|\[Alert\s+[^\]]+\]|\[Comparison\s+[^\]]+\]|\[Upsell\s+[^\]]+\])/g;
+import ConfigQuiz from "@/components/conversion/ConfigQuiz";
+import EditionPoll from "@/components/conversion/EditionPoll";
+
+const COMPONENT_REGEX = /(\[Product\s+[^\]]+\]|\[ProsCons\s+[^\]]+\]|\[CTA\s+[^\]]+\]|\[Alert\s+[^\]]+\]|\[Comparison\s+[^\]]+\]|\[Upsell\s+[^\]]+\]|\[Quiz\s*\]|\[Poll\s*\])/g;
 
 // Render Markdown Body to React Server Nodes
 export function renderMarkdown(body: string): React.ReactNode[] {
@@ -727,6 +733,14 @@ export function renderMarkdown(body: string): React.ReactNode[] {
         const idsMatch = trimmed.match(/ids="([^"]+)"/);
         const ids = idsMatch ? idsMatch[1].split(",").map(i => i.trim()) : [];
         return <GuideUpsell key={index} ids={ids} />;
+      }
+
+      if (trimmed.startsWith("[Quiz")) {
+        return <ConfigQuiz key={index} />;
+      }
+
+      if (trimmed.startsWith("[Poll")) {
+        return <EditionPoll key={index} />;
       }
 
       return <MarkdownTextSection key={index} text={part} />;

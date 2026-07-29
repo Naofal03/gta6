@@ -111,6 +111,24 @@ Le **Lexar NM790 2 To** est notre recommandation absolue : 7 400 Mo/s en lecture
 
 ---
 
+## 5.5 Comparatif Direct : RTX 5070 Ti vs RTX 5060 vs RTX 4060
+
+[Comparison ids="rtx-5070-ti,rtx-4060-ti,lexar-eq790-2to"]
+
+---
+
+## 5.6 Testez Votre Profil : Quelle Config PC GTA 6 est faite pour vous ?
+
+[Quiz]
+
+---
+
+## 5.7 Sondage Communauté : Quelle édition / pack prévoyez-vous d'acheter ?
+
+[Poll]
+
+---
+
 ## 6. FAQ — Configuration PC GTA 6
 
 ### GTA 6 sortira-t-il sur PC en même temps que sur PS5 ?
@@ -135,13 +153,16 @@ Oui, très certainement. Rockstar a confirmé le ray tracing sur consoles, et la
 
 ---
 
-## 7. Nos Recommandations Produits Complémentaires
+## 7. Nos Recommandations Produits Complémentaires & Maillage Interne
 
 Pour compléter votre setup PC GTA 6, voici les produits indispensables :
 
 [Upsell ids="lexar-eq790-2to,arctis-nova-7p,lg-oled-c3"]
 
-Consultez également nos guides connexes :
-- [Meilleur SSD pour GTA 6 sur PS5](/guides/meilleur-ssd-gta6) — pour les joueurs PS5
-- [Quelle TV 4K pour GTA 6 ?](/guides/meilleure-tv-gta6) — pour jouer sur grand écran
-- [Différence édition Standard vs Ultimate GTA 6](/guides/edition-standard-vs-ultimate) — pour choisir votre édition
+### 📚 À lire absolument pour préparer votre sortie GTA 6 :
+- 🖥️ [Quelle carte graphique RTX pour GTA 6 ?](/guides/meilleure-rtx-gta6) — Comparatif complet des GPU NVIDIA
+- ⚡ [Date de sortie GTA 6 sur PC](/guides/gta6-date-sortie-pc) — Calendrier officiel & précommandes
+- 💾 [Guide des SSD recommandés pour GTA 6](/guides/meilleur-ssd-gta6) — Vitesse & capacité maximale
+- 🎮 [Jouer à GTA 6 en 4K 120FPS sur PS5 Pro](/guides/gta6-4k-120fps-ps5) — Tout sur le mode performance
+- 🏆 [Préparer son personnage pour GTA Online 2](/guides/gta6-online-preparation) — Bonus & transfert de compte
+- 📺 [Meilleur Écran & TV 4K pour GTA 6](/guides/meilleur-ecran-gta6) — Temps de réponse & HDR10+
