@@ -1,7 +1,7 @@
 ---
 title: "GTA 6 Édition Standard vs Ultimate — Laquelle Choisir ?"
 description: "GTA 6 Standard à 79,99€ ou Ultimate à 99,99€ ? Notre analyse complète des bonus, du rapport qualité/prix et notre recommandation finale pour chaque profil de joueur."
-date: "2026-06-26"
+date: "2026-07-29"
 category: "Comparatif Éditions"
 duration: "4 min"
 canonical: "https://gta6-pi-cyan.vercel.app/guides/edition-standard-vs-ultimate"

@@ -1,6 +1,5 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import 'dotenv/config'; // to load .env file
 
 // Number of pins to publish per script execution (batch size)
 const PINS_PER_RUN = 10;
@@ -23,7 +22,41 @@ interface PinRow {
   imageFileName: string;
 }
 
-// Basic CSV Parser
+// Basic CSV Line Parser
+function parseCSVLine(line: string): string[] {
+  const fields: string[] = [];
+  let current = '';
+  let inQuotes = false;
+
+  for (let i = 0; i < line.length; i++) {
+    const ch = line[i];
+    if (inQuotes) {
+      if (ch === '"') {
+        if (i + 1 < line.length && line[i + 1] === '"') {
+          current += '"';
+          i++; // skip escaped quote
+        } else {
+          inQuotes = false;
+        }
+      } else {
+        current += ch;
+      }
+    } else {
+      if (ch === '"') {
+        inQuotes = true;
+      } else if (ch === ',') {
+        fields.push(current);
+        current = '';
+      } else {
+        current += ch;
+      }
+    }
+  }
+  fields.push(current);
+  return fields;
+}
+
+// Parse CSV
 function parseCSV(filePath: string): PinRow[] {
   const content = fs.readFileSync(filePath, 'utf-8');
   const lines = content.split('\n').filter(l => l.trim().length > 0);
@@ -31,19 +64,15 @@ function parseCSV(filePath: string): PinRow[] {
 
   // Skip header (i === 0)
   for (let i = 1; i < lines.length; i++) {
-    // Handling basic CSV parsing. Does not handle commas inside quotes perfectly,
-    // but works for the current format where we separated by commas and cleaned quotes.
-    const columns = lines[i].match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || [];
-    if (columns.length >= 5) {
-      // Clean quotes
-      const clean = (str: string | undefined) => (str || '').replace(/^"|"$/g, '').trim();
+    const columns = parseCSVLine(lines[i]);
+    if (columns.length >= 4) {
       rows.push({
         index: i.toString().padStart(3, '0'),
-        angle: clean(columns[0]),
-        title: clean(columns[1]),
-        description: clean(columns[2]),
-        link: clean(columns[3]),
-        imageFileName: clean(columns[4])
+        title: columns[0].trim(),
+        link: columns[1].trim(),
+        description: columns[2].trim(),
+        angle: columns[3].trim(),
+        imageFileName: `pin-${i.toString().padStart(3, '0')}.png`
       });
     }
   }
@@ -106,12 +135,14 @@ async function publishPin(pin: PinRow): Promise<boolean> {
       body: JSON.stringify(payload)
     });
 
-    const result = await response.json();
-
     if (!response.ok) {
-      console.error(`❌ Failed to publish ${pin.imageFileName}:`, result);
+      const errorText = await response.text();
+      console.error(`❌ Failed to publish ${pin.imageFileName}. Status: ${response.status} ${response.statusText}`);
+      console.error(`Response: ${errorText.substring(0, 500)}`);
       return false;
     }
+
+    const result = await response.json();
 
     console.log(`✅ Success! Pin ID: ${result.id}`);
     return true;

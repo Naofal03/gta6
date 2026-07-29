@@ -1,7 +1,7 @@
 ---
 title: "Meilleure TV 4K HDMI 2.1 pour GTA 6 — Guide d'Achat 2026"
 description: "Quelle TV 4K choisir pour GTA 6 sur PS5 Pro, PS5 et Xbox Series X ? Notre sélection des meilleurs écrans HDMI 2.1 à 120Hz."
-date: "2026-06-26"
+date: "2026-07-29"
 category: "Money Page"
 duration: "6 min"
 canonical: "https://gta6-pi-cyan.vercel.app/guides/meilleure-tv-4k-gta6"

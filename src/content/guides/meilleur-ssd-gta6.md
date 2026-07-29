@@ -1,7 +1,7 @@
 ---
 title: "Meilleur SSD PS5 pour GTA 6 — Comparatif 2026"
 description: "GTA 6 nécessite un SSD NVMe ultra-rapide d'au moins 150 Go. Découvrez notre comparatif des meilleurs SSD PS5 pour GTA 6 en 2026 : Lexar EQ790, Crucial P310. Conseils et installation."
-date: "2026-06-26"
+date: "2026-07-29"
 category: "Guide SSD"
 duration: "5 min"
 canonical: "https://gta6-pi-cyan.vercel.app/guides/meilleur-ssd-gta6"

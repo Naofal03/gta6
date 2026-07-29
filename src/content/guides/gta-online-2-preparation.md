@@ -1,7 +1,7 @@
 ---
 title: "GTA Online 2 & Fibre — Quel routeur gaming pour GTA 6 (2026)"
 description: "Évitez les lags et les déconnexions sur GTA Online 2. Découvrez nos conseils de configuration réseau et le meilleur routeur gaming pour GTA VI."
-date: "2026-06-26"
+date: "2026-07-29"
 category: "Money Page"
 duration: "5 min"
 canonical: "https://gta6-pi-cyan.vercel.app/guides/gta-online-2-preparation"

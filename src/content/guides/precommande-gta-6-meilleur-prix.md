@@ -1,7 +1,7 @@
 ---
 title: "Précommande GTA 6 : où l'acheter au meilleur prix ? Guide complet 2026"
 description: "Où précommander GTA 6 sur PS5 et Xbox Series X au meilleur prix en France ? Découvrez notre guide complet d'achat incluant les consoles, manettes et accessoires indispensables."
-date: "2026-06-26"
+date: "2026-07-29"
 category: "Guide Précommande"
 duration: "6 min"
 canonical: "https://gta6-pi-cyan.vercel.app/guides/precommande-gta-6-meilleur-prix"

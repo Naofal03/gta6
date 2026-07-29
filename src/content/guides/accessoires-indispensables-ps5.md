@@ -1,7 +1,7 @@
 ---
 title: "Accessoires PS5 Indispensables pour GTA 6 (Guide 2026)"
 description: "Équipez-vous pour l'arrivée de GTA 6 sur PS5. Manettes Pro, casques sans fil audio 3D, et stockage étendu : voici les accessoires que tout fan de Rockstar doit posséder."
-date: "2026-06-26"
+date: "2026-07-29"
 category: "Money Page"
 duration: "5 min"
 canonical: "https://gta6-pi-cyan.vercel.app/guides/accessoires-indispensables-ps5"

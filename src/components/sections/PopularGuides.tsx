@@ -21,13 +21,31 @@ const POPULAR_GUIDES: GuideCard[] = [
     accentColor: "from-orange to-red-500",
   },
   {
-    title: "SSD Requis pour GTA 6 sur PS5",
-    description: "GTA 6 pèsera environ 150 Go. Quel SSD NVMe PCIe 4.0 ultra-rapide choisir pour ne pas saturer votre console ?",
-    category: "SSD PS5",
-    slug: "gta6-ssd-ps5-requis",
+    title: "Configuration PC requise pour GTA 6",
+    description: "3 configurations complètes (minimale, recommandée, ultime) avec tous les composants sélectionnés pour Vice City.",
+    category: "Configuration PC",
+    slug: "config-pc-gta6",
+    readTime: "10 min",
+    icon: ShieldAlert,
+    accentColor: "from-blue-500 to-indigo-600",
+  },
+  {
+    title: "Taille du Téléchargement GTA 6 : Combien de Go ?",
+    description: "GTA 6 pèsera 130 à 200 Go selon la plateforme. Préparez votre stockage avant le 19 novembre 2026.",
+    category: "Stockage & SSD",
+    slug: "gta6-taille-telechargement",
     readTime: "5 min",
     icon: HardDrive,
     accentColor: "from-cyan to-blue-500",
+  },
+  {
+    title: "GTA 6 en 4K 120fps sur PS5 : Ce qu'il Faut Savoir",
+    description: "Modes graphiques, différences PS5 vs PS5 Pro et quelle TV choisir pour profiter du 4K 120fps dans Vice City.",
+    category: "Performance Gaming",
+    slug: "gta6-4k-120fps-ps5",
+    readTime: "7 min",
+    icon: Monitor,
+    accentColor: "from-pink-500 to-purple-500",
   },
   {
     title: "PS5 Pro vs PS5 Slim pour GTA 6",
@@ -36,16 +54,16 @@ const POPULAR_GUIDES: GuideCard[] = [
     slug: "ps5-pro-vs-ps5-slim-gta6",
     readTime: "5 min",
     icon: Monitor,
-    accentColor: "from-pink-500 to-purple-500",
+    accentColor: "from-emerald-500 to-teal-600",
   },
   {
-    title: "Configuration PC requise pour GTA 6",
-    description: "Specs minimales, recommandées et estimations matérielles pour faire tourner GTA VI en 4K 60 FPS sur PC.",
-    category: "Configuration PC",
-    slug: "config-pc-gta6",
-    readTime: "6 min",
-    icon: ShieldAlert,
-    accentColor: "from-blue-500 to-indigo-600",
+    title: "Préparez Votre Setup pour GTA Online 2",
+    description: "Tout ce qu'on sait sur le mode multijoueur de GTA 6, et le hardware pour dominer Vice City en ligne dès le premier jour.",
+    category: "GTA Online",
+    slug: "gta6-online-preparation",
+    readTime: "7 min",
+    icon: BookOpen,
+    accentColor: "from-yellow-500 to-orange-500",
   },
 ];
 export default function PopularGuides() {
@@ -71,7 +89,7 @@ export default function PopularGuides() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {POPULAR_GUIDES.map((guide) => {
             const Icon = guide.icon;
             return (

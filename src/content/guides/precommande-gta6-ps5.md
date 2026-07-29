@@ -1,7 +1,7 @@
 ---
 title: "Précommande GTA 6 PS5 — Où acheter au meilleur prix en France ?"
 description: "Précommandez GTA 6 sur PS5 dès maintenant au meilleur prix garanti Amazon. Guide d'achat complet avec accessoires indispensables, PS5 Pro et SSD pour jouer dans les meilleures conditions."
-date: "2026-06-26"
+date: "2026-07-29"
 category: "Money Page"
 duration: "4 min"
 canonical: "https://gta6-pi-cyan.vercel.app/guides/precommande-gta6-ps5"

@@ -1,7 +1,7 @@
 ---
 title: "SSD PS5 requis pour GTA 6 — Lequel acheter ? (Guide 2026)"
 description: "GTA 6 pèse 150 Go sur PS5. Votre console n'a probablement plus assez de stockage. Découvrez quel SSD M.2 NVMe choisir pour installer GTA VI sans supprimer vos autres jeux."
-date: "2026-06-26"
+date: "2026-07-29"
 category: "Money Page"
 duration: "5 min"
 canonical: "https://gta6-pi-cyan.vercel.app/guides/gta6-ssd-ps5-requis"

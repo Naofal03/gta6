@@ -1,7 +1,7 @@
 ---
 title: "Meilleure TV 4K pour GTA 6 — Comparatif Gaming 2026"
 description: "Quelle TV choisir pour profiter des graphismes de GTA 6 ? Notre comparatif des meilleures TV 4K gaming 2026 compatibles PS5 et PS5 Pro : Xiaomi F Pro 75\", TCL Q6C."
-date: "2026-06-26"
+date: "2026-07-29"
 category: "Guide TV"
 duration: "5 min"
 canonical: "https://gta6-pi-cyan.vercel.app/guides/meilleure-tv-gta6"

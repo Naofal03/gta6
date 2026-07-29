@@ -1,7 +1,7 @@
 ---
 title: "Meilleur Pack PS5 pour GTA 6 — Console + Jeu + Accessoires 2026"
 description: "Quel pack PS5 choisir pour jouer à GTA 6 dans les meilleures conditions ? PS5 Standard, PS5 Pro ou PS5 Digital ? Notre comparatif complet avec les accessoires indispensables."
-date: "2026-06-26"
+date: "2026-07-29"
 category: "Money Page"
 duration: "6 min"
 canonical: "https://gta6-pi-cyan.vercel.app/guides/meilleur-pack-ps5-gta6"

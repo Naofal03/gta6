@@ -1,7 +1,7 @@
 ---
 title: "Précommande GTA 6 Xbox Series X — Où acheter en France ?"
 description: "Précommandez GTA 6 sur Xbox Series X au meilleur prix garanti Amazon. Guide d'achat complet avec accessoires indispensables pour jouer GTA VI dans les meilleures conditions sur Xbox."
-date: "2026-06-26"
+date: "2026-07-29"
 category: "Money Page"
 duration: "4 min"
 canonical: "https://gta6-pi-cyan.vercel.app/guides/precommande-gta6-xbox"

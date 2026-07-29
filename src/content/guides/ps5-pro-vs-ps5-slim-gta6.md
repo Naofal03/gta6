@@ -1,7 +1,7 @@
 ---
 title: "PS5 Pro vs PS5 Slim pour GTA 6 — Laquelle choisir en 2026 ?"
 description: "PS5 Pro ou PS5 Slim pour jouer à GTA 6 ? Comparatif complet des performances, des prix et de l'expérience graphique sur les deux versions de la PlayStation 5."
-date: "2026-06-26"
+date: "2026-07-29"
 category: "Money Page"
 duration: "5 min"
 canonical: "https://gta6-pi-cyan.vercel.app/guides/ps5-pro-vs-ps5-slim-gta6"

@@ -115,7 +115,7 @@ export default async function GuidePage({ params }: GuidePageProps) {
     "headline": guide.metadata.title,
     "description": guide.metadata.description,
     "datePublished": guide.metadata.date,
-    "dateModified": guide.metadata.date,
+    "dateModified": new Date().toISOString().split('T')[0],
     "author": {
       "@type": "Organization",
       "name": "GTA6HQ Editorial",
@@ -135,6 +135,52 @@ export default async function GuidePage({ params }: GuidePageProps) {
     }
   };
 
+  // Extract FAQ questions from markdown content for FAQPage schema (Rich Snippets)
+  const faqItems: { question: string; answer: string }[] = [];
+  const faqSectionMatch = guide.content.match(/## [^\n]*FAQ[^\n]*(\n[\s\S]*?)(?=\n## |$)/i);
+  if (faqSectionMatch) {
+    const faqContent = faqSectionMatch[1];
+    const questionRegex = /### ([^\n]+)\n([^#]+)/g;
+    let match;
+    while ((match = questionRegex.exec(faqContent)) !== null) {
+      const question = match[1].trim();
+      const answer = match[2]
+        .replace(/\[.*?\]\(.*?\)/g, '') // Remove markdown links
+        .replace(/\*\*/g, '')             // Remove bold markers
+        .replace(/\*/g, '')               // Remove italic markers
+        .replace(/\n+/g, ' ')             // Collapse newlines
+        .trim()
+        .substring(0, 300);              // Limit to 300 chars for schema
+      if (question && answer) {
+        faqItems.push({ question, answer });
+      }
+    }
+  }
+
+  const faqJsonLd = faqItems.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  } : null;
+
+  // BreadcrumbList for structured navigation
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://gta6-pi-cyan.vercel.app" },
+      { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://gta6-pi-cyan.vercel.app/guides" },
+      { "@type": "ListItem", "position": 3, "name": guide.metadata.title, "item": `https://gta6-pi-cyan.vercel.app/guides/${slug}` }
+    ]
+  };
+
   // Resolve primary product for sticky conversion bar
   const primaryProduct = guide.metadata.primaryProduct
     ? PRODUCTS_FULL.find((p) => p.id === guide.metadata.primaryProduct)
@@ -146,6 +192,16 @@ export default async function GuidePage({ params }: GuidePageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       {/* Sticky Amazon Buy Bar */}
       {primaryProduct && (
         <StickyBuyBar
