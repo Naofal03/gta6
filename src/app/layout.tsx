@@ -11,38 +11,97 @@ import Script from "next/script";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
 });
 
 const bebas = Bebas_Neue({
   weight: "400",
   subsets: ["latin"],
   variable: "--font-bebas",
+  display: "swap",
 });
 
 const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
+  display: "swap",
 });
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://gta6-pi-cyan.vercel.app";
+
 export const metadata: Metadata = {
-  title: "GTA6HQ | Guide Précommande, Date de Sortie & Setup Ultime",
-  description: "Tout savoir sur GTA 6 : date de sortie le 19 novembre 2026, précommandes Amazon, meilleur setup gaming, SSD PS5 et actus Vice City. Optimisez votre expérience GTA VI.",
-  keywords: ["GTA 6", "GTA VI", "date de sortie GTA 6", "précommande GTA 6", "setup gaming GTA 6", "Vice City", "SSD PS5 GTA 6"],
-  authors: [{ name: "GTA6HQ Team" }],
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "GTA 6 (19 novembre 2026) : Prix, Éditions, Setup & Guides — GTA6HQ",
+    template: "%s — GTA6HQ",
+  },
+  description:
+    "GTA 6 est sorti le 19 novembre 2026 sur PS5 et Xbox Series X|S. Meilleur prix, Standard vs Ultimate, espace disque GTA 6 (150 Go), SSD PS5, TV 4K 120fps et casque audio : tous nos guides experts en français.",
+  keywords: [
+    "GTA 6",
+    "GTA VI",
+    "Grand Theft Auto 6",
+    "date sortie GTA 6",
+    "prix GTA 6",
+    "acheter GTA 6",
+    "GTA 6 PS5",
+    "GTA 6 Xbox Series",
+    "setup gaming GTA 6",
+    "Vice City GTA 6",
+    "SSD PS5 GTA 6",
+    "TV 4K GTA 6",
+    "édition standard GTA 6",
+    "édition ultimate GTA 6",
+    "GTA 6 taille téléchargement",
+    "GTA 6 sortie France",
+    "Lucia Jason GTA 6",
+    "Leonida GTA 6",
+  ],
+  authors: [{ name: "GTA6HQ" }],
+  creator: "GTA6HQ",
+  publisher: "GTA6HQ",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: SITE_URL,
+    languages: {
+      "fr-FR": SITE_URL,
+    },
+  },
   openGraph: {
-    title: "GTA6HQ | L'expérience ultime GTA 6",
-    description: "Préparez la sortie de GTA 6 avec nos guides exclusifs et le meilleur du hardware gaming.",
-    url: "https://gta6-pi-cyan.vercel.app",
+    title: "GTA 6 est sorti — Prix, Éditions & Setup Idéal | GTA6HQ",
+    description:
+      "La référence française sur GTA VI : où acheter au meilleur prix, Standard ou Ultimate, préparer son setup PS5/Xbox et tout ce qu'il faut pour jouer à Vice City dès le premier jour.",
+    url: SITE_URL,
     siteName: "GTA6HQ",
     images: [
       {
-        url: "https://media.rockstargames.com/rockstargames-new/img/global/news/upload/gta-vi-trailer-1-screencaps/01.jpg",
+        url: `${SITE_URL}/images/hero_bg.png`,
         width: 1200,
         height: 630,
+        alt: "GTA 6 — Lucia et Jason à Vice City, Leonida",
       },
     ],
     locale: "fr_FR",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GTA 6 est sorti — Prix, Setup & Guides | GTA6HQ",
+    description:
+      "GTA VI disponible sur PS5 & Xbox Series X|S. Standard (79,99€) vs Ultimate (99,99€) : tout ce qu'il faut savoir. Guides experts en français.",
+    images: [`${SITE_URL}/images/hero_bg.png`],
+    creator: "@GTA6HQ",
+    site: "@GTA6HQ",
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GSC_VERIFICATION,
@@ -59,6 +118,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className="dark">
+      <head>
+        {/* Preconnect to critical origins */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        {/* Preload LCP image */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/hero_bg.png"
+          fetchPriority="high"
+        />
+        {/* DNS prefetch for affiliate links */}
+        <link rel="dns-prefetch" href="https://amzn.to" />
+        <link rel="dns-prefetch" href="https://www.amazon.fr" />
+      </head>
       <body
         className={cn(
           inter.variable,
@@ -67,7 +142,9 @@ export default function RootLayout({
           "antialiased min-h-screen flex flex-col"
         )}
       >
-        <div className="noise-overlay" />
+        <div className="noise-overlay" aria-hidden="true" />
+
+        {/* Google Analytics */}
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>
             <Script
@@ -84,10 +161,88 @@ export default function RootLayout({
             </Script>
           </>
         )}
+
+        {/* Schema: WebSite */}
+        <Script
+          id="schema-website"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "GTA6HQ",
+              alternateName: "GTA 6 HQ",
+              url: SITE_URL,
+              description:
+                "La référence française sur GTA VI (sortie 19 novembre 2026) : prix, éditions, guides setup PS5/Xbox, SSD et TV 4K.",
+              inLanguage: "fr-FR",
+              publisher: {
+                "@type": "Organization",
+                name: "GTA6HQ",
+                url: SITE_URL,
+                logo: {
+                  "@type": "ImageObject",
+                  url: `${SITE_URL}/images/gta6hq-icon.png`,
+                  width: 512,
+                  height: 512,
+                },
+              },
+              potentialAction: {
+                "@type": "SearchAction",
+                target: {
+                  "@type": "EntryPoint",
+                  urlTemplate: `${SITE_URL}/guides/{search_term_string}`,
+                },
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
+        />
+
+        {/* Schema: Organization */}
+        <Script
+          id="schema-organization"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "GTA6HQ",
+              url: SITE_URL,
+              logo: `${SITE_URL}/images/gta6hq-icon.png`,
+              sameAs: [],
+              description:
+                "Site de référence français indépendant dédié à Grand Theft Auto VI. Guides d'achat, comparatifs de setup et informations sur GTA 6.",
+            }),
+          }}
+        />
+
+        {/* Schema: BreadcrumbList (home) */}
+        <Script
+          id="schema-breadcrumb-home"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Accueil",
+                  item: SITE_URL,
+                },
+              ],
+            }),
+          }}
+        />
+
         <PromoBar />
         <StickyBar />
         <Navigation />
-        <main className="flex-grow">{children}</main>
+        <main className="flex-grow" id="main-content">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

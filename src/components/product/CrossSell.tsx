@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ProductFull, PRODUCTS_FULL } from "@/data/products-full";
-import StarRating from "../ui/StarRating";
 import { formatPrice } from "@/lib/utils";
 
 interface CrossSellProps {
@@ -57,12 +56,6 @@ export default function CrossSell({ product }: CrossSellProps) {
                   <Link href={`/produits/${p.id}`}>{p.name}</Link>
                 </h3>
 
-                <div className="flex items-center gap-2">
-                  <StarRating rating={p.rating} />
-                  <span className="text-[10px] text-muted font-mono">
-                    ({p.reviewCount})
-                  </span>
-                </div>
               </div>
 
               {/* Bottom Panel */}

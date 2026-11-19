@@ -14,6 +14,7 @@ import ProductFAQ from "@/components/product/ProductFAQ";
 import ProductCTA from "@/components/product/ProductCTA";
 import StickyProductBar from "@/components/product/StickyProductBar";
 import VideoReview from "@/components/product/VideoReview";
+import BreadcrumbNav from "@/components/ui/BreadcrumbNav";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -99,11 +100,6 @@ export default async function ProductPage({ params }: PageProps) {
         "@type": "Organization",
         "name": "Amazon"
       }
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": product.rating,
-      "reviewCount": product.reviewCount
     }
   };
 
@@ -114,6 +110,8 @@ export default async function ProductPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaProduct) }}
       />
+
+      <BreadcrumbNav items={[{ label: "Produits", href: "/produits" }, { label: product.name, href: `/produits/${product.id}` }]} />
 
       {/* Hero product details */}
       <ProductHero product={product} />
@@ -136,7 +134,7 @@ export default async function ProductPage({ params }: PageProps) {
       )}
 
 
-      {/* Amazon ratings & buyer reviews */}
+      {/* Points forts / faibles + lien vers les avis Amazon */}
       <ReviewsSection product={product} />
 
       {/* Alternatives comparison */}
@@ -182,7 +180,7 @@ export default async function ProductPage({ params }: PageProps) {
       <div className="max-w-xl mx-auto px-6 mt-10 text-center text-xs text-muted flex justify-center gap-6">
         <Link href="/setup" className="hover:text-white hover:underline transition-colors">Configurateur Setup</Link>
         <span className="text-border">|</span>
-        <Link href="/precommande" className="hover:text-white hover:underline transition-colors">Guide Précommande</Link>
+        <Link href="/precommande" className="hover:text-white hover:underline transition-colors">Acheter GTA 6</Link>
         <span className="text-border">|</span>
         <Link href="/histoire-gta" className="hover:text-white hover:underline transition-colors">Histoire de la Saga</Link>
       </div>

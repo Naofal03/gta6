@@ -4,7 +4,6 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { PRODUCTS_FULL } from "@/data/products-full";
-import StarRating from "@/components/ui/StarRating";
 import Badge from "@/components/ui/Badge";
 import NeonText from "@/components/ui/NeonText";
 import { formatPrice } from "@/lib/utils";
@@ -131,12 +130,6 @@ export default function CataloguePage() {
                     <Link href={`/produits/${p.id}`}>{p.name}</Link>
                   </h2>
 
-                  <div className="flex items-center gap-2">
-                    <StarRating rating={p.rating} />
-                    <span className="text-[10px] text-muted font-mono">
-                      ({p.reviewCount.toLocaleString()})
-                    </span>
-                  </div>
 
                   <p className="text-xs text-muted font-inter line-clamp-2 leading-relaxed mt-1">
                     {p.description}

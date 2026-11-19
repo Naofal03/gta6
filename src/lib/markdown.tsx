@@ -269,7 +269,7 @@ function GuideProductCard({ id }: { id: string }) {
             <h3 className="text-2xl font-bebas text-white tracking-wide uppercase">{product.name}</h3>
             <div className="flex items-center gap-1 text-gold text-xs font-mono">
               <span className="bg-gold/10 px-2 py-0.5 border border-gold/30 rounded-sm">
-                ⭐ {product.rating} ({product.reviewCount} avis)
+                Note GTA6HQ : {product.scores?.global ?? "—"}/10
               </span>
             </div>
           </div>

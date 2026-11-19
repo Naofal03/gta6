@@ -1,25 +1,46 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Users } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { ShieldCheck, Truck, HardDrive, BookOpen } from "lucide-react";
+import { useLaunchPhase } from "@/lib/launch";
 
 export default function SocialProofTicker() {
-  const [count, setCount] = useState(12450);
+  const phase = useLaunchPhase();
+  const released = phase !== "prelaunch";
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCount(prev => prev + Math.floor(Math.random() * 3));
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+  const items = [
+    {
+      icon: Truck,
+      color: "text-cyan",
+      text: released ? "Disponible sur PS5 & Xbox Series X|S" : "Précommande livrée autour du 19/11",
+    },
+    {
+      icon: HardDrive,
+      color: "text-orange",
+      text: "Prévoyez ~150 Go d'espace libre",
+    },
+    {
+      icon: ShieldCheck,
+      color: "text-white",
+      text: released ? "Vendu & expédié par Amazon" : "Précommande annulable avant expédition",
+    },
+    {
+      icon: BookOpen,
+      color: "text-orange",
+      text: "20+ guides matériel indépendants",
+      desktopOnly: true,
+    },
+  ];
 
   return (
-    <div className="bg-orange/10 border-y border-orange/20 py-3 flex justify-center items-center gap-3 overflow-hidden">
-       <Users size={16} className="text-orange" />
-       <p className="text-xs font-mono uppercase tracking-widest text-orange/80">
-         🔥 <span className="font-bold text-white">{count.toLocaleString()}</span> JOUEURS ONT DÉJÀ PRÉCOMMANDÉ LEUR SETUP CETTE SEMAINE
-       </p>
+    <div className="bg-orange/10 border-y border-orange/20 py-3 overflow-hidden">
+      <ul className="max-w-7xl mx-auto px-6 flex flex-wrap justify-center items-center gap-x-8 gap-y-2 text-xs font-mono uppercase tracking-widest text-orange/90">
+        {items.map(({ icon: Icon, color, text, desktopOnly }) => (
+          <li key={text} className={`${desktopOnly ? "hidden lg:flex" : "flex"} items-center gap-2`}>
+            <Icon size={14} className={color} />
+            <span className={color === "text-white" ? "text-white" : undefined}>{text}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

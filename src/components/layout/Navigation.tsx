@@ -6,10 +6,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Menu, X, ShoppingCart, ChevronDown } from "lucide-react";
+import LaunchLabel from "@/components/ui/LaunchLabel";
 
 const NAV_LINKS = [
   { label: "Accueil", href: "/" },
-  { label: "Précommande", href: "/precommande" },
+  { label: "Acheter GTA 6", href: "/precommande" },
   { label: "Setup", href: "/setup" },
   {
     label: "Accessoires",
@@ -123,12 +124,12 @@ export default function Navigation() {
           <a
             href="https://amzn.to/4aiof6B"
             target="_blank"
-            rel="nofollow sponsored"
-            aria-label="Précommander GTA 6 sur Amazon"
+            rel="nofollow sponsored noopener"
+            aria-label="Acheter GTA 6 sur Amazon"
             className="inline-flex items-center gap-1.5 rounded-sm text-sm font-bold bg-orange text-white hover:bg-[#FF5712] px-4 py-2 transition-colors shadow-[0_0_15px_rgba(255,69,0,0.3)] shimmer-btn flex-shrink-0"
           >
             <ShoppingCart size={13} />
-            PRÉCOMMANDER
+            <LaunchLabel pre="PRÉCOMMANDER" post="ACHETER GTA 6" />
           </a>
         </div>
 
@@ -184,12 +185,12 @@ export default function Navigation() {
               <a
                 href="https://amzn.to/4aiof6B"
                 target="_blank"
-                rel="nofollow sponsored"
-                aria-label="Précommander GTA 6"
+                rel="nofollow sponsored noopener"
+                aria-label="Acheter GTA 6 sur Amazon"
                 className="mt-4 inline-flex items-center justify-center gap-2 rounded-sm text-lg font-bebas bg-orange text-white hover:bg-[#FF5712] px-8 py-4 transition-colors shimmer-btn"
               >
                 <ShoppingCart size={18} />
-                PRÉCOMMANDER GTA 6 →
+                <LaunchLabel pre="PRÉCOMMANDER GTA 6 →" post="ACHETER GTA 6 →" />
               </a>
             </div>
           </motion.div>

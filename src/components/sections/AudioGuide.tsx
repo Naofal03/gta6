@@ -6,7 +6,6 @@ import Link from "next/link";
 import { PRODUCTS_FULL } from "@/data/products-full";
 import Image from "next/image";
 import { formatPrice } from "@/lib/utils";
-import StarRating from "@/components/ui/StarRating";
 
 export default function AudioGuide() {
   const headsetProducts = PRODUCTS_FULL.filter(p => p.category === 'casque').slice(0, 3);
@@ -90,10 +89,6 @@ export default function AudioGuide() {
                   className="object-contain max-h-full"
                   unoptimized
                 />
-              </div>
-              <div className="flex items-center gap-2 mb-2">
-                <StarRating rating={product.rating} />
-                <span className="text-[10px] text-muted">({product.reviewCount.toLocaleString()})</span>
               </div>
               <h4 className="text-lg font-bebas tracking-wider mb-2">{product.name}</h4>
               <p className="text-xs text-muted font-inter leading-relaxed mb-4 flex-1">{product.sellingPoint}</p>

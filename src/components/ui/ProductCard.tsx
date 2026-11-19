@@ -6,7 +6,6 @@ import Link from "next/link";
 import { ProductFull } from "@/data/products-full";
 import { formatPrice } from "@/lib/utils";
 import Button from "../ui/Button";
-import StarRating from "./StarRating";
 import Badge from "./Badge";
 import { ShoppingCart, CheckCircle2, FileText } from "lucide-react";
 
@@ -48,10 +47,6 @@ export default function ProductCard({ product }: ProductCardProps) {
             <Link href={`/produits/${product.id}`} onClick={(e) => e.stopPropagation()}>
               <h3 className="text-xl mb-2 line-clamp-2 hover:text-cyan transition-colors">{product.name}</h3>
             </Link>
-            <div className="flex items-center gap-2 mb-4">
-              <StarRating rating={product.rating} />
-              <span className="text-[10px] text-muted">({product.reviewCount.toLocaleString()})</span>
-            </div>
 
             <div className="flex flex-wrap gap-1 mb-4">
               {product.specs.slice(0, 3).map((spec, i) => (

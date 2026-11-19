@@ -9,25 +9,33 @@ interface TimeLeft {
   seconds: number;
 }
 
+const TARGET_DATE = new Date("2026-11-19T00:00:00").getTime();
+
+function calculateTimeLeft(target: number): TimeLeft {
+  const now = new Date().getTime();
+  const distance = Math.max(0, target - now);
+
+  return {
+    days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+    minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+    seconds: Math.floor((distance % (1000 * 60)) / 1000),
+  };
+}
+
 export default function FlipClock() {
-  const targetDate = new Date("2026-11-19T00:00:00").getTime();
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(() => calculateTimeLeft(TARGET_DATE));
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
+    // Update immediately on mount to prevent any hydration mismatch skew
+    setTimeLeft(calculateTimeLeft(TARGET_DATE));
 
-      setTimeLeft({
-        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((distance % (1000 * 60)) / 1000),
-      });
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft(TARGET_DATE));
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [targetDate]);
+  }, []);
 
   return (
     <div className="flex flex-row justify-center gap-2 md:gap-8 font-mono overflow-x-auto py-2">

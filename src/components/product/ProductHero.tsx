@@ -4,7 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ProductFull } from "@/data/products-full";
-import StarRating from "../ui/StarRating";
 import Badge from "../ui/Badge";
 import { ShoppingCart } from "lucide-react";
 import { formatPrice } from "@/lib/utils";
@@ -139,15 +138,16 @@ export default function ProductHero({ product }: ProductHeroProps) {
             </p>
           </div>
 
-          {/* Rating */}
-          <div className="flex items-center gap-2">
-            <StarRating rating={product.rating} />
+          {/* Note éditoriale GTA6HQ */}
+          <div className="flex items-center gap-3">
+            <span className="text-xs font-mono uppercase tracking-wider text-muted">Note GTA6HQ</span>
+            <span className="text-lg font-mono font-bold text-gold">{product.scores.global}/10</span>
             <a
               href="#reviews"
               onClick={handleReviewScroll}
               className="text-xs text-muted hover:text-cyan hover:underline transition-colors"
             >
-              ({product.reviewCount.toLocaleString()} avis Amazon)
+              Points forts &amp; faibles ↓
             </a>
           </div>
 
