@@ -41,7 +41,8 @@ export default function VideoShowcase() {
       />
 
       <section
-        className="py-24 px-6 bg-background relative overflow-hidden"
+        id="trailer"
+        className="py-24 px-6 bg-background relative overflow-hidden scroll-mt-20"
         ref={ref}
         aria-labelledby="video-heading"
       >

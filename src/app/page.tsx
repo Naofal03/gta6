@@ -17,6 +17,7 @@ import ProductCard from "@/components/ui/ProductCard";
 import StorySection from "@/components/sections/StorySection";
 import PopularGuides from "@/components/sections/PopularGuides";
 import VideoShowcase from "@/components/sections/VideoShowcase";
+import BentoGrid from "@/components/sections/BentoGrid";
 import Script from "next/script";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://gta6-pi-cyan.vercel.app";
@@ -140,6 +141,7 @@ export default function Home() {
       <div className="relative">
         <Hero />
         <SocialProofTicker />
+        <BentoGrid />
         <StatsCounter />
         <StorySection />
 
